@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-inter: var(--font-geist-inter);
   --background-image-hero: url('../public/bg-hero.png');
+  --background-image-about: url('../public/bg-about.png');
 }
 
 @theme {
