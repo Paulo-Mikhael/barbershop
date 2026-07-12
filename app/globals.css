@@ -47,7 +47,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: var(color-typo-100);
+    --background: var(--color-typo-100);
     --foreground: var(--color-typo-700);
   }
 }
