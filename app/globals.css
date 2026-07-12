@@ -4,6 +4,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-inter: var(--font-geist-inter);
+  --background-image-hero: url('../public/bg-hero.png');
 }
 
 @theme {
@@ -55,5 +56,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-size: var(--text-paragraph);
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }

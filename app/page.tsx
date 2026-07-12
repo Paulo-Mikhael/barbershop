@@ -1,9 +1,9 @@
-import Button from "./components/Button";
+import HomePage from "./components/Pages/HomePage";
 
 export default function Home() {
   return (
-    <Button>
-      Botão
-    </Button>
+    <HomePage>
+      <HomePage.Main />
+    </HomePage>
   );
 }
