@@ -5,6 +5,7 @@ export default function Home() {
     <HomePage>
       <HomePage.Main />
       <HomePage.About />
+      <HomePage.Plans />
     </HomePage>
   );
 }
