@@ -1,19 +1,35 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-inter: var(--font-geist-inter);
+/* Css Variables */
+:root {
+  --background: var(--color-typo-800);
+  --foreground: var(--color-typo-100);
 
   /* Home Backgrounds */
-  --background-image-hero: url('../public/images/home/backgrounds/bg-hero.png');
-  --background-image-about: url('../public/images/home/backgrounds/bg-about.png');
-  --background-image-plans: url('../public/images/home/backgrounds/bg-plans.png');
-  --background-image-faq: url('../public/images/home/backgrounds/bg-faq.png');
-  --background-image-faq: url('../public/images/home/backgrounds/bg-faq.png');
-  --background-image-footer: url('../public/images/home/backgrounds/bg-footer.png');
+  --bg-hero: url('../public/images/home/backgrounds/bg-hero.png');
+  --bg-about: url('../public/images/home/backgrounds/bg-about.png');
+  --bg-plans: url('../public/images/home/backgrounds/bg-plans.png');
+  --bg-faq: url('../public/images/home/backgrounds/bg-faq.png');
+  --bg-footer: url('../public/images/home/backgrounds/bg-footer.png');
 }
 
+/* Initial Styles */
+@theme inline {
+  /* Font */
+  --font-inter: var(--font-geist-inter);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Home Backgrounds */
+  --background-image-hero: var(--bg-hero);
+  --background-image-about: var(--bg-about);
+  --background-image-plans: var(--bg-plans);
+  --background-image-faq: var(--bg-faq);
+  --background-image-footer: var(--bg-footer);
+}
+
+/* Tailwind Variables */
 @theme {
   /* Brand colors */
   --color-brand-default: #EA3341;
@@ -51,15 +67,18 @@
   --color-box: #141414;
 }
 
-:root {
-  --background: var(--color-typo-800);
-  --foreground: var(--color-typo-100);
-}
-
+/* Light Mode Styles */
 @media (prefers-color-scheme: light) {
   :root {
     --background: var(--color-typo-100);
     --foreground: var(--color-typo-700);
+
+    /* Home Backgrounds */
+    --bg-hero: url('../public/images/home/backgrounds/light/bg-hero.png');
+    --bg-footer: url('../public/images/home/backgrounds/light/bg-footer.png');
+    --bg-faq: url('../public/images/home/backgrounds/light/bg-faq.png');
+
+    --color-box: #f1f1f1;
   }
 }
 
