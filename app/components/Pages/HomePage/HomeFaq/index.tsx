@@ -39,8 +39,8 @@ export default function HomeFaq() {
             </li>
           ))}
         </ul>
-        <Image src="/images/home/faq1.png" alt="faq image" width={205} height={205} className="absolute top-0 right-0" />
-        <Image src="/images/home/faq2.png" alt="faq image" width={205} height={205} className="absolute bottom-0 left-0" />
+        <Image src="/images/home/faq1.png" alt="faq image" width={205} height={205} className="absolute top-0 right-0 max-2xl:hidden" />
+        <Image src="/images/home/faq2.png" alt="faq image" width={205} height={205} className="absolute bottom-0 left-0 max-2xl:hidden" />
       </span>
     </section>
   );
