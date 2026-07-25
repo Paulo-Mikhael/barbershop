@@ -6,6 +6,7 @@
   --font-inter: var(--font-geist-inter);
   --background-image-hero: url('../public/bg-hero.png');
   --background-image-about: url('../public/bg-about.png');
+  --background-image-plans: url('../public/bg-plans.png');
 }
 
 @theme {
@@ -40,6 +41,9 @@
   --color-typo-300: #B8B8B8;
   --color-typo-200: #DBDBDB;
   --color-typo-100: #FFF;
+
+  /* Boxes background color */
+  --color-box: #141414;
 }
 
 :root {
