@@ -7,6 +7,7 @@ export default function Home() {
       <HomePage.About />
       <HomePage.Plans />
       <HomePage.Faq />
+      <HomePage.Footer />
     </HomePage>
   );
 }

@@ -4,10 +4,14 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-inter: var(--font-geist-inter);
+
+  /* Home Backgrounds */
   --background-image-hero: url('../public/images/home/backgrounds/bg-hero.png');
   --background-image-about: url('../public/images/home/backgrounds/bg-about.png');
   --background-image-plans: url('../public/images/home/backgrounds/bg-plans.png');
   --background-image-faq: url('../public/images/home/backgrounds/bg-faq.png');
+  --background-image-faq: url('../public/images/home/backgrounds/bg-faq.png');
+  --background-image-footer: url('../public/images/home/backgrounds/bg-footer.png');
 }
 
 @theme {
@@ -64,4 +68,14 @@ body {
   color: var(--foreground);
   font-size: var(--text-paragraph);
   font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: underline;
+  transition: all .2s linear;
+
+  &:hover,
+  &:focus {
+    color: var(--color-brand-default);
+  }
 }
