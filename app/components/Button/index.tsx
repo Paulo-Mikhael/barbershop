@@ -1,9 +1,19 @@
+"use client";
+
 import clsx from "clsx";
 import { ReactNode } from "react";
 
-export default function Button({ children, variant = "primary", full = false }: { children: ReactNode, variant?: "primary" | "outlined", full?: boolean }) {
+type ButtonProps = {
+  children: ReactNode,
+  variant?: "primary" | "outlined",
+  full?: boolean,
+  onClick?: () => void
+};
+
+export default function Button({ children, variant = "primary", full = false, onClick }: ButtonProps) {
   return (
     <button
+      onClick={onClick}
       className={
         clsx(
           "cursor-pointer",
