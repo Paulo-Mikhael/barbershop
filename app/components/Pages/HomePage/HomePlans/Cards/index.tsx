@@ -5,30 +5,27 @@ const cards: CardContent[] = [
     title: "Corte Clássico",
     price: 50,
     benefits: [
-      "Lorem ipsum",
-      "Lorem ipsum dolor sit",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor sit amet"
+      "Corte na tesoura ou máquina",
+      "Acabamento perfeito na navalha",
+      "Lavagem e finalização com pomada",
     ]
   },
   {
     title: "Cabelo e Barba",
     price: 90,
     benefits: [
-      "Lorem ipsum",
-      "Lorem ipsum dolor sit",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor sit"
+      "Corte de cabelo completo",
+      "Barboterapia com toalha quente",
+      "Alinhamento e hidratação dos fios",
     ]
   },
   {
     title: "Plano Mensal VIP",
     price: 150,
     benefits: [
-      "Lorem ipsum",
-      "Lorem ipsum dolor sit",
-      "Lorem ipsum dolor",
-      "Lorem ipsum dolor sit amet"
+      "Cortes ilimitados durante o mês",
+      "Manutenção semanal da barba",
+      "10% de desconto em produtos da loja",
     ],
     mostPopular: true
   },

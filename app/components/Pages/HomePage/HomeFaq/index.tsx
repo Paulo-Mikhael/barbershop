@@ -8,16 +8,16 @@ type FaqContent = {
 export default function HomeFaq() {
   const faqQuestions: FaqContent[] = [
     {
-      title: "Lorem ipsum dolor sit amet",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a convallis nulla. Phasellus iaculis, diam eget pellentesque auctor, tellus libero posuere leo, sit amet volutpat velit dolor in magna."
+      title: "Preciso agendar horário ou posso chegar na hora?",
+      answer: "Recomendamos fortemente que você agende seu horário pelo nosso site ou app para evitar filas e garantir seu atendimento. No entanto, sempre tentamos encaixar clientes que chegam de surpresa, dependendo da disponibilidade dos barbeiros no momento."
     },
     {
-      title: "Lorem ipsum dolor sit amet",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a convallis nulla. Phasellus iaculis, diam eget pellentesque auctor, tellus libero posuere leo, sit amet volutpat velit dolor in magna."
+      title: "Como funciona o pacote VIP Mensal?",
+      answer: "O Plano VIP foi criado para quem gosta de estar com o visual sempre impecável. Pagando uma taxa fixa, você pode vir cortar o cabelo quantas vezes quiser no mês e alinhar a barba semanalmente, sem pagar nada a mais por isso na cadeira."
     },
     {
-      title: "Lorem ipsum dolor sit amet",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a convallis nulla. Phasellus iaculis, diam eget pellentesque auctor, tellus libero posuere leo, sit amet volutpat velit dolor in magna."
+      title: "Vocês atendem crianças (corte infantil)?",
+      answer: "Com certeza! Nossos profissionais têm a paciência e a técnica necessárias para atender os pequenos (a partir de 3 anos). O ambiente é amigável e garantimos que eles sairão cheios de estilo."
     },
   ];
 

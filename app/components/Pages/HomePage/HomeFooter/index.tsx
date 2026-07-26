@@ -19,12 +19,12 @@ export default function HomeFooter() {
           <div className="flex flex-col gap-2.5">
             <span className="flex h-9">
               <Button full>
-                Criar conta
+                ENTRAR E AGENDAR
               </Button>
             </span>
             <span className="flex h-9">
               <Button variant="outlined" full>
-                Agendar sem uma conta
+                Agendar como convidado
               </Button>
             </span>
           </div>

@@ -28,7 +28,7 @@ export default function Card({ mostPopular = false, ...card }: CardContent) {
       <p className="text-brand-default text-highlight font-bold">
         R$ {card.price}
       </p>
-      <ul className="flex flex-col items-center text-caption gap-3.5 max-w-68 text-center">
+      <ul className="flex flex-col items-center text-paragraph gap-3.5 max-w-68 text-center">
         {card.benefits.map((benefit, index) => (
           <li key={index}>
             {benefit}
@@ -36,7 +36,7 @@ export default function Card({ mostPopular = false, ...card }: CardContent) {
         ))}
       </ul>
       <Button onClick={card.onClick}>
-        Subscribe
+        {mostPopular ? "Inscrever-se" : "Agendar"}
       </Button>
     </span>
   );

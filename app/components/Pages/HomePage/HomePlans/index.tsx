@@ -1,5 +1,4 @@
 import Bar from "@/app/components/Bar";
-import Card from "./Cards/Card";
 import Cards from "./Cards";
 
 export default function HomePlans() {
