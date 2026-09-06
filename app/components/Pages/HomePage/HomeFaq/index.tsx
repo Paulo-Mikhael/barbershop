@@ -22,7 +22,7 @@ export default function HomeFaq() {
   ];
 
   return (
-    <section className="flex h-screen bg-faq bg-cover bg-center">
+    <section className="flex h-screen bg-brand bg-cover bg-center">
       <span className="flex flex-col items-center justify-center grow relative m-32">
         <h2 className="text-subtitle font-bold">
           Perguntas Frequentes (FAQ)

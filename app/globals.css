@@ -5,15 +5,17 @@
   --background: var(--color-typo-800);
   --foreground: var(--color-typo-100);
 
+  /* Main brand background */
+  --bg-brand: url('../public/images/backgrounds/bg-brand.png');
+
   /* Home Backgrounds */
   --bg-hero: url('../public/images/home/backgrounds/bg-hero.png');
   --bg-about: url('../public/images/home/backgrounds/bg-about.png');
   --bg-plans: url('../public/images/home/backgrounds/bg-plans.png');
-  --bg-faq: url('../public/images/home/backgrounds/bg-faq.png');
   --bg-footer: url('../public/images/home/backgrounds/bg-footer.png');
 }
 
-/* Initial Styles */
+/* Initial Tailwind Styles */
 @theme inline {
   /* Font */
   --font-inter: var(--font-geist-inter);
@@ -25,7 +27,7 @@
   --background-image-hero: var(--bg-hero);
   --background-image-about: var(--bg-about);
   --background-image-plans: var(--bg-plans);
-  --background-image-faq: var(--bg-faq);
+  --background-image-brand: var(--bg-brand);
   --background-image-footer: var(--bg-footer);
 }
 
@@ -73,11 +75,14 @@
     --background: var(--color-typo-100);
     --foreground: var(--color-typo-700);
 
+    /* Main brand background */
+    --bg-brand: url('../public/images/backgrounds/light/bg-brand.png');
+
     /* Home Backgrounds */
     --bg-hero: url('../public/images/home/backgrounds/light/bg-hero.png');
     --bg-footer: url('../public/images/home/backgrounds/light/bg-footer.png');
-    --bg-faq: url('../public/images/home/backgrounds/light/bg-faq.png');
 
+    /* Boxes background color */
     --color-box: #f1f1f1;
   }
 }
@@ -92,6 +97,7 @@ body {
 a {
   text-decoration: underline;
   transition: all .2s linear;
+  cursor: pointer;
 
   &:hover,
   &:focus {
