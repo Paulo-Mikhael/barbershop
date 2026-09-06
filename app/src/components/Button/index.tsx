@@ -7,13 +7,16 @@ type ButtonProps = {
   children: ReactNode,
   variant?: "primary" | "outlined",
   full?: boolean,
-  onClick?: () => void
+  onClick?: () => void,
+  rounded?: boolean,
+  type?: "submit" | "reset" | "button"
 };
 
-export default function Button({ children, variant = "primary", full = false, onClick }: ButtonProps) {
+export default function Button({ children, variant = "primary", full = false, onClick, rounded = false, type = "button" }: ButtonProps) {
   return (
     <button
       onClick={onClick}
+      type={type}
       className={
         clsx(
           "cursor-pointer",
@@ -21,7 +24,8 @@ export default function Button({ children, variant = "primary", full = false, on
             "px-8 py-4": !full,
             "w-full h-full": full,
             "bg-brand-default text-typo-100 hover:bg-brand-dark active:bg-brand-darker focus:bg-brand-bright disabled:bg-typo-400": variant == "primary",
-            "border-brand-default border-2 text-brand-default hover:border-brand-dark hover:text-brand-dark active:border-brand-darker active:text-brand-darker focus:border-brand-bright focus:text-brand-bright disabled:border-typo-400 disabled:text-typo-400": variant == "outlined"
+            "border-brand-default border-2 text-brand-default hover:border-brand-dark hover:text-brand-dark active:border-brand-darker active:text-brand-darker focus:border-brand-bright focus:text-brand-bright disabled:border-typo-400 disabled:text-typo-400": variant == "outlined",
+            "rounded-2xl": rounded
           }
         )
       }
