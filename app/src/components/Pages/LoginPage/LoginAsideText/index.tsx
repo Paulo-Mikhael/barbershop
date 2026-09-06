@@ -10,7 +10,7 @@ export default function LoginAsideText() {
   return (
     <div className="flex flex-col gap-25">
       <figure>
-        <Image src={themedImageSrc} alt="Login aside text" width={391} height={205} />
+        <Image src={themedImageSrc} alt="Login aside text" width={383} height={197} loading="eager" className="w-auto h-auto" />
       </figure>
       <article className="flex flex-col gap-2.5 pl-12">
         <div className="flex gap-8">
