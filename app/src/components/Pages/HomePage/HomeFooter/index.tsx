@@ -32,7 +32,7 @@ export default function HomeFooter() {
       </span>
       <Bar full classname="mt-24 mb-5" />
       <p className="text-caption dark:text-typo-200">
-        © 2026 Barbershop, FAQ Illustrations by <a href="https://storyset.com/" target="_blank">Storyset</a>. All rights reserved.
+        © 2026 Barbershop, FAQ Illustrations by <a className="underline" href="https://storyset.com/" target="_blank">Storyset</a>. All rights reserved.
       </p>
     </footer>
   );

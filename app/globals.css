@@ -95,7 +95,6 @@ body {
 }
 
 a {
-  text-decoration: underline;
   transition: all .2s linear;
   cursor: pointer;
 

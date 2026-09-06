@@ -7,6 +7,7 @@ export default function Login() {
         <LoginPage.AsideText />
         <LoginPage.Card>
           <LoginPage.Card.Header />
+          <LoginPage.Card.Form />
         </LoginPage.Card>
       </LoginPage.Main>
     </LoginPage>
