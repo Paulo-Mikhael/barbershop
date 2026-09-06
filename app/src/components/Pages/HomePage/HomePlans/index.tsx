@@ -1,4 +1,4 @@
-import Bar from "@/app/components/Bar";
+import Bar from "@/app/src/components/Bar";
 import Cards from "./Cards";
 
 export default function HomePlans() {

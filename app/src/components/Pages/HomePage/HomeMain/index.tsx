@@ -1,5 +1,5 @@
-import Bar from "@/app/components/Bar";
-import Button from "@/app/components/Button";
+import Bar from "@/app/src/components/Bar";
+import Button from "@/app/src/components/Button";
 import Header from "./Header";
 
 export default function HomeMain() {

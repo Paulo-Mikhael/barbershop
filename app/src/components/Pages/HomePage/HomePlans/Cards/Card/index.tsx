@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "@/app/components/Button";
+import Button from "@/app/src/components/Button";
 import clsx from "clsx";
 
 export type CardContent = {

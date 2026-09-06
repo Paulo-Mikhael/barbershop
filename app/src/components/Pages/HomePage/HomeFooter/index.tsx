@@ -1,6 +1,6 @@
-import Bar from "@/app/components/Bar";
-import Button from "@/app/components/Button";
-import Textbox from "@/app/components/Textbox";
+import Bar from "@/app/src/components/Bar";
+import Button from "@/app/src/components/Button";
+import Textbox from "@/app/src/components/Textbox";
 
 export default function HomeFooter() {
   return (

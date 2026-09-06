@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
+import { ThemeProvider } from "./src/contexts/ThemeContext";
 
 const inter = Inter({
   variable: "--font-geist-inter",
@@ -23,7 +24,9 @@ export default function RootLayout({
       lang="pt-br"
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <ThemeProvider>
+        <body className="min-h-full">{children}</body>
+      </ThemeProvider>
     </html>
   );
 }
