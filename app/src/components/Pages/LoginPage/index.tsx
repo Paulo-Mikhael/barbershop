@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import LoginAsideText from "./LoginAsideText";
 import LoginMain from "./LoginMain";
+import LoginCard from "./LoginCard";
 
 function LoginPage({ children }: { children: ReactNode }) {
   return (
@@ -10,5 +11,6 @@ function LoginPage({ children }: { children: ReactNode }) {
 
 LoginPage.Main = LoginMain;
 LoginPage.AsideText = LoginAsideText;
+LoginPage.Card = LoginCard;
 
 export default LoginPage;
