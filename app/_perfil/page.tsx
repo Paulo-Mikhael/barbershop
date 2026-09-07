@@ -12,7 +12,7 @@ export default function Perfil() {
       <div className="overflow-hidden rounded-[22px] border border-typo-600 bg-typo-800">
         <Header />
 
-        <div className="flex min-h-[950px]">
+        <div className="flex min-h-237.5">
           <Sidebar />
 
           <section className="min-w-0 flex-1 p-8">
