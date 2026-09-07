@@ -27,8 +27,8 @@ export default function ListCard({
         </p>
       </div>
 
-      <button className="shrink-0 text-typo-100 rounded-md bg-blue-600 px-6 py-2 text-xs font-semibold transition hover:bg-blue-500">
-        View
+      <button className="shrink-0 cursor-pointer text-typo-100 rounded-md bg-blue-600 px-6 py-2 text-xs font-semibold transition hover:bg-blue-500">
+        Ver
       </button>
     </div>
   );
