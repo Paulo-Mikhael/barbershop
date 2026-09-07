@@ -5,7 +5,7 @@ import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
   return (
-    <aside className="w-78.75 shrink-0 border-r border-typo-700 bg-box dark:bg-[#070b0d] px-8 py-7">
+    <aside className="w-78.75 shrink-0 border-l border-r border-typo-700 bg-box dark:bg-[#070b0d] px-8 py-7">
       <nav className="space-y-2">
         <SidebarItem
           icon={<Home size={23} />}
