@@ -30,25 +30,25 @@ export default function Textbox({ width, placeholder, labelText, LucideIcon, Act
       <span
         onClick={() => input.current?.focus()}
         className={
-          clsx("flex p-4 gap-2.5 cursor-pointer bg-box border-2 border-typo-700 outline-0 has-[input:focus]:border-brand-default", {
+          clsx("flex items-center p-4 gap-2.5 cursor-pointer bg-box border-2 border-typo-700 outline-0 has-[input:focus]:border-brand-default", {
             "w-full": !width,
             [boxWidthClass]: width
           })}
       >
         {
           LucideIcon && (
-            <LucideIcon />
+            <LucideIcon width={16} height={16} className="text-caption xl:text-paragraph" />
           )
         }
         <input
           ref={input}
-          className="outline-0 text-paragraph grow"
+          className="outline-0 text-caption xl:text-paragraph grow"
           type={type}
           placeholder={placeholder}
         />
         {
           ActionButton && (
-            <ActionButton onClick={() => {
+            <ActionButton width={20} height={20} className="text-caption xl:text-paragraph" onClick={() => {
               ActionOnClick && ActionOnClick();
             }} />
           )

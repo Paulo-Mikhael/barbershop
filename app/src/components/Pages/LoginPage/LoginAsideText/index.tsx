@@ -8,7 +8,7 @@ export default function LoginAsideText() {
   const themedImageSrc = theme === "dark" ? "/images/login/hand.png" : "/images/login/light/hand.png";
 
   return (
-    <div className="flex flex-col gap-25">
+    <div className="flex flex-col gap-25 max-xl:hidden">
       <figure>
         <Image src={themedImageSrc} alt="Login aside text" width={383} height={197} loading="eager" className="w-auto h-auto" />
       </figure>
