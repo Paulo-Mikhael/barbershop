@@ -8,11 +8,11 @@ import Stats from "../src/components/Pages/Stats";
 
 export default function Perfil() {
   return (
-    <main className="min-h-screen bg-background text-foreground p-5">
-      <div className="overflow-hidden rounded-[22px] border border-typo-600 bg-typo-800">
+    <main className="min-h-screen">
+      <div className="overflow-hidden border border-typo-600 bg-background">
         <Header />
 
-        <div className="flex min-h-237.5">
+        <div className="flex min-h-min-h-237.5">
           <Sidebar />
 
           <section className="min-w-0 flex-1 p-8">
