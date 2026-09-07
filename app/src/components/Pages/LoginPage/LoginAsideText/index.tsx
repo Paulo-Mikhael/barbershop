@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function LoginAsideText() {
   const theme = useTheme();
-  const themedImageSrc = theme === "dark" ? "/images/hand.png" : "/images/light/hand.png";
+  const themedImageSrc = theme === "dark" ? "/images/login/hand.png" : "/images/light/login/hand.png";
 
   return (
     <div className="flex flex-col gap-25">

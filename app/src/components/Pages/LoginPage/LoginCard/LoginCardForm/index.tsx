@@ -18,7 +18,7 @@ export default function LoginCardForm() {
         <Textbox placeholder="Informe sua senha" labelText="Senha" LucideIcon={Lock} ActionButton={PasswordIcon()} ActionOnClick={() => setIsPasswordVisible(!isPasswordVisible)} type={isPasswordVisible ? "text" : "password"} />
         <a className="font-bold text-caption text-brand-darker text-right grow">Esqueceu a senha?</a>
       </div>
-      <div className="flex grow justify-center">
+      <div className="flex grow justify-center mt-2.5">
         <span className="w-92 h-11">
           <Button rounded full type="submit">
             Login

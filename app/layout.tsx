@@ -24,6 +24,9 @@ export default function RootLayout({
       lang="pt-br"
       className={`${inter.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
       <ThemeProvider>
         <body className="min-h-full">{children}</body>
       </ThemeProvider>
