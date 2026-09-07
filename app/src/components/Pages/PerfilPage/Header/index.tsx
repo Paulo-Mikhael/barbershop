@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex h-16 items-center justify-between border-b border-l border-typo-700 bg-background px-7">
       {/* Logo */}
       <div className="text-[29px] font-black tracking-tight cursor-pointer">
-        <Image src="/logo.png" alt="logo" width={110} height={31} />
+        <Image src="/logo.png" alt="logo" width={110} height={31} className="w-auto h-auto" />
       </div>
 
       {/* Actions */}
