@@ -13,10 +13,14 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState('dark');
 
-  // Detecta e continua detectando o tema do sistema
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 
+    if (media.matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    };
     media.addEventListener(("change"), () => setTheme(media.matches ? 'dark' : 'light'))
   }, []);
 
