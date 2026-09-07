@@ -3,10 +3,10 @@ import Cards from "./Cards";
 
 export default function HomePlans() {
   return (
-    <section className="h-screen bg-plans bg-cover bg-center flex flex-col items-center justify-center gap-32">
+    <section className="xl:h-screen bg-plans bg-cover bg-center flex flex-col items-center justify-center gap-32">
       <Bar />
-      <div className="flex flex-col gap-16 items-center">
-        <h2 className="text-subtitle font-bold">
+      <div className="flex flex-col gap-16">
+        <h2 className="text-subtitle font-bold text-center">
           Nossos Planos
         </h2>
         <Cards />

@@ -10,7 +10,7 @@ export default function HomeFooter() {
           Preparado para o seu próximo corte de cabelo?<br />
           Junte-se a mais de 1000 clientes satisfeitos
         </h2>
-        <p className="dark:text-typo-200">
+        <p className="dark:text-typo-200 text-center">
           Conecte-se para criar seu perfil de cliente ou continue sem uma conta
         </p>
         <div className="min-w-91.75 flex flex-col gap-3.5">
@@ -31,7 +31,7 @@ export default function HomeFooter() {
         </div>
       </span>
       <Bar full classname="mt-24 mb-5" />
-      <p className="text-caption dark:text-typo-200">
+      <p className="text-caption dark:text-typo-200 text-center">
         © 2026 Barbershop, FAQ Illustrations by <a className="underline" href="https://storyset.com/" target="_blank">Storyset</a>. All rights reserved.
       </p>
     </footer>

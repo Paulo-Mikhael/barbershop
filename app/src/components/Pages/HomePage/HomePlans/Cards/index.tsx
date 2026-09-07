@@ -33,7 +33,7 @@ const cards: CardContent[] = [
 
 export default function Cards() {
   return (
-    <div className="flex gap-6 items-center">
+    <div className="flex gap-6 items-center flex-wrap justify-center p-4">
       <Card {...cards[0]} />
       <Card {...cards[1]} />
       <Card {...cards[2]} />
