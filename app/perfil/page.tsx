@@ -6,7 +6,7 @@ import ProfileCard from "../src/components/Pages/PerfilPage/ProfileCard";
 import Sidebar from "../src/components/Pages/PerfilPage/Sidebar";
 import Stats from "../src/components/Pages/Stats";
 
-export default function DashboardPage() {
+export default function Perfil() {
   return (
     <main className="min-h-screen bg-background text-foreground p-5">
       <div className="overflow-hidden rounded-[22px] border border-typo-600 bg-typo-800">

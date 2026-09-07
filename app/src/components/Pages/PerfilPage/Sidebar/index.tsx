@@ -1,11 +1,11 @@
-import { Home, Scissors, CalendarDays, MessageSquare } from "lucide-react";
+import { Home, Scissors, CalendarDays, MessageSquare, CalendarClock } from "lucide-react";
 import GameItem from "./GameItem";
 import SidebarSection from "./SidebarSection";
 import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
   return (
-    <aside className="w-[315px] shrink-0 border-r border-typo-700 bg-[#070b0d] px-8 py-7">
+    <aside className="w-78.75 shrink-0 border-r border-typo-700 bg-box dark:bg-[#070b0d] px-8 py-7">
       <nav className="space-y-2">
         <SidebarItem
           icon={<Home size={23} />}
@@ -15,26 +15,34 @@ export default function Sidebar() {
 
         <SidebarItem
           icon={<Scissors size={23} />}
-          label="Barbers"
+          label="Cabeleireiros"
+        />
+
+        <SidebarItem
+          icon={<CalendarClock size={23} />}
+          label="Agendamentos"
         />
 
         <SidebarItem
           icon={<CalendarDays size={23} />}
-          label="Appointments"
-        />
-
-        <SidebarItem
-          icon={<CalendarDays size={23} />}
-          label="Calendar"
+          label="Calendário"
         />
 
         <SidebarItem
           icon={<MessageSquare size={23} />}
-          label="Forum"
+          label="Ajuda"
         />
       </nav>
 
-      <SidebarSection title="MY GAMES">
+      <SidebarSection title="Vistos Recentemente">
+        <GameItem
+          icon="L"
+          label="League of Legends"
+          color="bg-yellow-400"
+        />
+      </SidebarSection>
+
+      <SidebarSection title="Cabeleireiros Favoritados">
         <GameItem
           icon="L"
           label="League of Legends"
@@ -57,26 +65,6 @@ export default function Sidebar() {
           icon="R"
           label="Rocket League"
           color="bg-cyan-500"
-        />
-      </SidebarSection>
-
-      <SidebarSection title="MY TOURNAMENTS">
-        <GameItem
-          icon="D"
-          label="Professional FFA Series"
-          color="bg-blue-400"
-        />
-
-        <GameItem
-          icon="K"
-          label="Shooting in Desert"
-          color="bg-orange-500"
-        />
-
-        <GameItem
-          icon="C"
-          label="Who can survive?"
-          color="bg-purple-500"
         />
       </SidebarSection>
     </aside>

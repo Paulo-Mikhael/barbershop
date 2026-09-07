@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 export default function SidebarItem({
   icon,
   label,
@@ -9,10 +11,11 @@ export default function SidebarItem({
 }) {
   return (
     <button
-      className={`flex w-full items-center gap-5 rounded-md px-1 py-3 text-left transition ${active
-        ? "text-brand-default"
-        : "text-typo-200 hover:text-brand-default"
-        }`}
+      className={
+        clsx("flex w-full items-center gap-5 rounded-md px-1 py-3 text-left transition", {
+          "text-brand-default cursor-default": active,
+          "hover:text-brand-default cursor-pointer": !active
+        })}
     >
       {icon}
 

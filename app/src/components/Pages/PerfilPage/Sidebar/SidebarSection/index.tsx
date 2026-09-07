@@ -7,7 +7,7 @@ export default function SidebarSection({
 }) {
   return (
     <div className="mt-8">
-      <h3 className="mb-3 text-sm font-semibold text-typo-400">
+      <h3 className="mb-3 text-sm font-semibold dark:text-typo-400 uppercase">
         {title}
       </h3>
 
