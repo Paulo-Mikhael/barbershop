@@ -1,6 +1,6 @@
-import ActiveEvents from "../src/components/Pages/PerfilPage/ActiveEvents";
+import FavoriteBarbers from "../src/components/Pages/PerfilPage/FavoriteBarbers";
 import Bio from "../src/components/Pages/PerfilPage/Bio";
-import FavoriteGames from "../src/components/Pages/PerfilPage/FavoriteGames";
+import RecentAppointments from "../src/components/Pages/PerfilPage/RecentAppointments";
 import Header from "../src/components/Pages/PerfilPage/Header";
 import ProfileCard from "../src/components/Pages/PerfilPage/ProfileCard";
 import Sidebar from "../src/components/Pages/PerfilPage/Sidebar";
@@ -28,8 +28,8 @@ export default function Perfil() {
 
             <div className="mt-8 grid grid-cols-[1.35fr_.85fr] gap-6">
               <div className="space-y-7">
-                <FavoriteGames />
-                <ActiveEvents />
+                <RecentAppointments />
+                <FavoriteBarbers />
               </div>
 
               <Bio />
