@@ -5,16 +5,15 @@ import HomePlans from "./HomePlans";
 import HomeFaq from "./HomeFaq";
 import HomeFooter from "./HomeFooter";
 
-function HomePage({ children }: { children: ReactNode }) {
-  return (
-    children
-  );
-}
+function HomeBody({ children }: { children: ReactNode }) { return children; }
 
-HomePage.Main = HomeMain;
-HomePage.About = HomeAbout;
-HomePage.Plans = HomePlans;
-HomePage.Faq = HomeFaq;
-HomePage.Footer = HomeFooter;
+const HomePage = {
+  Body: HomeBody,
+  Main: HomeMain,
+  About: HomeAbout,
+  Plans: HomePlans,
+  Faq: HomeFaq,
+  Footer: HomeFooter,
+}
 
 export default HomePage;

@@ -20,9 +20,9 @@ export default function LoginCardForm() {
       </div>
       <div className="flex grow justify-center mt-2.5">
         <span className="w-92 h-11">
-          <Button rounded full type="submit">
+          <Button.Primary rounded full type="submit">
             Login
-          </Button>
+          </Button.Primary>
         </span>
       </div>
     </form>

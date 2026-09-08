@@ -35,9 +35,9 @@ export default function Card({ mostPopular = false, ...card }: CardContent) {
           </li>
         ))}
       </ul>
-      <Button onClick={card.onClick}>
+      <Button.Primary onClick={card.onClick}>
         {mostPopular ? "Inscrever-se" : "Agendar"}
-      </Button>
+      </Button.Primary>
     </span>
   );
 }
