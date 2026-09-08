@@ -1,10 +1,10 @@
-import FavoriteBarbers from "../src/components/Pages/PerfilPage/FavoriteBarbers";
-import Bio from "../src/components/Pages/PerfilPage/Bio";
-import RecentAppointments from "../src/components/Pages/PerfilPage/RecentAppointments";
-import Header from "../src/components/Pages/PerfilPage/Header";
-import ProfileCard from "../src/components/Pages/PerfilPage/ProfileCard";
-import Sidebar from "../src/components/Pages/PerfilPage/Sidebar";
-import Stats from "../src/components/Pages/Stats";
+import FavoriteBarbers from "../src/Pages/PerfilPage/FavoriteBarbers";
+import Bio from "../src/Pages/PerfilPage/Bio";
+import RecentAppointments from "../src/Pages/PerfilPage/RecentAppointments";
+import Header from "../src/Pages/PerfilPage/Header";
+import ProfileCard from "../src/Pages/PerfilPage/ProfileCard";
+import Sidebar from "../src/Pages/PerfilPage/Sidebar";
+import Stats from "../src/Pages/Stats";
 
 export default function Perfil() {
   return (
