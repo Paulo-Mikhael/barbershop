@@ -14,7 +14,7 @@ export default function Bio() {
       </div>
 
       <div className="rounded-lg border border-typo-700 bg-box p-6">
-        <p className="leading-relaxed text-typo-200">
+        <p className="leading-relaxed dark:text-typo-200">
           Barber, gamer and passionate about technology.
           <br />
           Always looking to improve and achieve new goals.
