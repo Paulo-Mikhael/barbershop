@@ -13,9 +13,26 @@ export default function LoginCardForm() {
 
   return (
     <form className="flex flex-col gap-5">
-      <Textbox placeholder="Informe seu e-mail" labelText="E-mail" LucideIcon={Mail} />
+
+      <Textbox.Body id="email-input">
+        <Textbox.Label>Email</Textbox.Label>
+        <Textbox.Box.Body>
+          <Textbox.Box.Icon LucideIcon={Mail} />
+          <Textbox.Box.Input placeholder="Informe seu email" />
+        </Textbox.Box.Body>
+      </Textbox.Body>
+
       <div className="flex flex-col gap-2">
-        <Textbox placeholder="Informe sua senha" labelText="Senha" LucideIcon={Lock} ActionButton={PasswordIcon()} ActionOnClick={() => setIsPasswordVisible(!isPasswordVisible)} type={isPasswordVisible ? "text" : "password"} />
+
+        <Textbox.Body id="password-input">
+          <Textbox.Label>Senha</Textbox.Label>
+          <Textbox.Box.Body>
+            <Textbox.Box.Icon LucideIcon={Lock} />
+            <Textbox.Box.Input type={isPasswordVisible ? "text" : "password"} placeholder="Informe sua senha" />
+            <Textbox.Box.ActionButton LucideIcon={PasswordIcon()} ActionOnClick={() => setIsPasswordVisible(!isPasswordVisible)} />
+          </Textbox.Box.Body>
+        </Textbox.Body>
+
         <a className="font-bold text-caption text-brand-darker text-right grow">Esqueceu a senha?</a>
       </div>
       <div className="flex grow justify-center mt-2.5">
