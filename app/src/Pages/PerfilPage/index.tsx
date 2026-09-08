@@ -3,14 +3,17 @@ import PerfilMain from "./PerfilMain";
 import PerfilHeader from "./PerfilHeader";
 import PerfilContent from "./PerfilContent";
 
-function PerfilPage({ children }: { children: ReactNode }) {
+function PerfilBody({ children }: { children: ReactNode }) {
   return (
     children
   );
 }
 
-PerfilPage.Main = PerfilMain;
-PerfilPage.Header = PerfilHeader;
-PerfilPage.Content = PerfilContent;
+const PerfilPage = {
+  Body: PerfilBody,
+  Main: PerfilMain,
+  Header: PerfilHeader,
+  Content: PerfilContent,
+}
 
 export default PerfilPage;
