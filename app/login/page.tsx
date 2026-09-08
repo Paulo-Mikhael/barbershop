@@ -2,7 +2,7 @@ import LoginPage from "../src/Pages/LoginPage";
 
 export default function Login() {
   return (
-    <LoginPage>
+    <LoginPage.Body>
       <LoginPage.Main>
         <LoginPage.AsideText />
         <LoginPage.Card>
@@ -11,6 +11,6 @@ export default function Login() {
           <LoginPage.Card.Footer />
         </LoginPage.Card>
       </LoginPage.Main>
-    </LoginPage>
+    </LoginPage.Body>
   );
 }

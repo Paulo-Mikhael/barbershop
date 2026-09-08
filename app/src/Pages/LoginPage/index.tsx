@@ -3,14 +3,17 @@ import LoginAsideText from "./LoginAsideText";
 import LoginMain from "./LoginMain";
 import LoginCard from "./LoginCard";
 
-function LoginPage({ children }: { children: ReactNode }) {
+function LoginBody({ children }: { children: ReactNode }) {
   return (
     children
   );
 }
 
-LoginPage.Main = LoginMain;
-LoginPage.AsideText = LoginAsideText;
-LoginPage.Card = LoginCard;
+const LoginPage = {
+  Body: LoginBody,
+  Main: LoginMain,
+  AsideText: LoginAsideText,
+  Card: LoginCard,
+}
 
 export default LoginPage;
