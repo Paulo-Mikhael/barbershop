@@ -1,5 +1,3 @@
-import Button from "../../../components/Button";
-
 export default function ProfileCard() {
   return (
     <div className="relative mt-6 min-h-61.25 overflow-hidden rounded-lg border border-brand-default bg-background">

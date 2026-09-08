@@ -1,7 +1,7 @@
 import { Search, Bell } from "lucide-react";
 import Image from "next/image";
 
-export default function Header() {
+export default function PerfilHeader() {
   return (
     <header className="flex h-16 items-center justify-between border-b border-l border-typo-700 bg-background px-7">
       {/* Logo */}
