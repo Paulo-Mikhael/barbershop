@@ -1,11 +1,9 @@
 "use client"
 
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { Dispatch, SetStateAction } from "react"
 
 type ThemeContextType = {
   theme: string;
-  setTheme: Dispatch<SetStateAction<string>>;
 };
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
@@ -25,7 +23,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme }}>
       {children}
     </ThemeContext.Provider>
   )
