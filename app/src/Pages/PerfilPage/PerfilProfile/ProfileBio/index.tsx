@@ -1,6 +1,6 @@
 import { CalendarDays, Pencil } from "lucide-react";
 
-export default function Bio() {
+export default function ProfileBio() {
   return (
     <section>
       <div className="mb-4 flex items-center justify-between">

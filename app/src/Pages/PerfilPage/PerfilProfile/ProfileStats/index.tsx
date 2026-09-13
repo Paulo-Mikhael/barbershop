@@ -1,7 +1,7 @@
 import { CalendarClock, Pencil } from "lucide-react";
 import StatCard from "./StatCard";
 
-export default function Stats() {
+export default function ProfileStats() {
   return (
     <div className="mt-6 grid grid-cols-4 gap-5">
       <StatCard

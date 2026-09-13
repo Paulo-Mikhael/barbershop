@@ -1,19 +1,39 @@
 import { ReactNode } from "react";
-import PerfilMain from "./PerfilMain";
 import PerfilHeader from "./PerfilHeader";
-import PerfilContent from "./PerfilContent";
+import PerfilAside from "./PerfilAside";
+import PerfilProfile from "./PerfilProfile";
+import ProfileCard from "./PerfilProfile/ProfileCard";
+import ProfileStats from "./PerfilProfile/ProfileStats";
+import ProfileAppointments from "./PerfilProfile/ProfileAppointments";
+import ProfileBio from "./PerfilProfile/ProfileBio";
+import ProfileFavoriteBarbers from "./PerfilProfile/ProfileFavoriteBarbers";
 
 function PerfilBody({ children }: { children: ReactNode }) {
   return (
-    children
+    <main className="min-h-screen">
+      <div className="overflow-hidden border border-typo-600 bg-background">
+        <div className="flex min-h-screen">
+          {children}
+        </div>
+      </div>
+    </main >
   );
 }
 
 const PerfilPage = {
-  Body: PerfilBody,
-  Main: PerfilMain,
   Header: PerfilHeader,
-  Content: PerfilContent,
+  Main: {
+    Body: PerfilBody,
+    Aside: PerfilAside,
+    Profile: {
+      Body: PerfilProfile,
+      Card: ProfileCard,
+      Stats: ProfileStats,
+      Appointments: ProfileAppointments,
+      Bio: ProfileBio,
+      FavoriteBarbers: ProfileFavoriteBarbers
+    }
+  },
 }
 
 export default PerfilPage;

@@ -1,6 +1,6 @@
-import ListCard from "../ListCard";
+import ListCard from "@/app/src/components/ListCard";
 
-export default function RecentAppointments() {
+export default function ProfileAppointments() {
   return (
     <section>
       <h2 className="mb-4 text-xl font-bold">

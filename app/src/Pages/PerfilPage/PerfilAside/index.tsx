@@ -3,7 +3,7 @@ import GameItem from "./GameItem";
 import SidebarSection from "./SidebarSection";
 import SidebarItem from "./SidebarItem";
 
-export default function Sidebar() {
+export default function PerfilAside() {
   return (
     <aside className="w-78.75 shrink-0 border-l border-r border-typo-700 bg-box dark:bg-[#070b0d] px-8 py-7">
       <nav className="space-y-2">

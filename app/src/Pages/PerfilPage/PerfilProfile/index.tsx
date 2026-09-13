@@ -1,6 +1,6 @@
-import ProfileCard from "../PerfilProfile/ProfileCard";
+import { ReactNode } from "react";
 
-export function PerfilContent({ title = "Minha conta" }: { title?: string }) {
+export default function PerfilProfile({ title = "Minha conta", children }: { title?: string, children: ReactNode }) {
   return (
     <section className="min-w-0 flex-1 p-8">
       <div className="flex items-center gap-5">
@@ -9,10 +9,9 @@ export function PerfilContent({ title = "Minha conta" }: { title?: string }) {
         </h2>
       </div>
 
-      <ProfileCard />
+      {children}
 
-      {/* <Stats />
-
+      {/* 
       <div className="mt-8 grid grid-cols-[1.35fr_.85fr] gap-6">
         <div className="space-y-7">
           <RecentAppointments />
@@ -20,7 +19,8 @@ export function PerfilContent({ title = "Minha conta" }: { title?: string }) {
         </div>
 
         <Bio />
-      </div> */}
+      </div> 
+      */}
     </section>
   );
 }
