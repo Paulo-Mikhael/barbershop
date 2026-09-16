@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
-import ProfileAppointments from "./ProfileAppointments";
 import ProfileBio from "./ProfileBio";
 import ProfileCard from "./ProfileCard";
-import ProfileFavoriteBarbers from "./ProfileFavoriteBarbers";
 import ProfileStats from "./ProfileStats";
+import ProfileList from "./ProfileList";
 
 function PerfilProfile({ title = "Minha conta", children }: { title?: string, children: ReactNode }) {
   return (
@@ -21,8 +20,7 @@ function PerfilProfile({ title = "Minha conta", children }: { title?: string, ch
 
 PerfilProfile.Card = ProfileCard;
 PerfilProfile.Stats = ProfileStats;
-PerfilProfile.Appointments = ProfileAppointments;
+PerfilProfile.List = ProfileList;
 PerfilProfile.Bio = ProfileBio;
-PerfilProfile.FavoriteBarbers = ProfileFavoriteBarbers;
 
 export default PerfilProfile;

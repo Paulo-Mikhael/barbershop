@@ -7,7 +7,7 @@ function PerfilBody({ children }: { children: ReactNode }) {
   return (
     <main className="min-h-screen">
       <div className="overflow-hidden border border-typo-600 bg-background">
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen sticky top-0">
           {children}
         </div>
       </div>
