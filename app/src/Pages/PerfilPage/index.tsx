@@ -2,11 +2,6 @@ import { ReactNode } from "react";
 import PerfilHeader from "./PerfilHeader";
 import PerfilAside from "./PerfilAside";
 import PerfilProfile from "./PerfilProfile";
-import ProfileCard from "./PerfilProfile/ProfileCard";
-import ProfileStats from "./PerfilProfile/ProfileStats";
-import ProfileAppointments from "./PerfilProfile/ProfileAppointments";
-import ProfileBio from "./PerfilProfile/ProfileBio";
-import ProfileFavoriteBarbers from "./PerfilProfile/ProfileFavoriteBarbers";
 
 function PerfilBody({ children }: { children: ReactNode }) {
   return (
@@ -20,20 +15,13 @@ function PerfilBody({ children }: { children: ReactNode }) {
   );
 }
 
+PerfilBody.Aside = PerfilAside;
+PerfilBody.Profile = PerfilProfile;
+
+
 const PerfilPage = {
   Header: PerfilHeader,
-  Main: {
-    Body: PerfilBody,
-    Aside: PerfilAside,
-    Profile: {
-      Body: PerfilProfile,
-      Card: ProfileCard,
-      Stats: ProfileStats,
-      Appointments: ProfileAppointments,
-      Bio: ProfileBio,
-      FavoriteBarbers: ProfileFavoriteBarbers
-    }
-  },
+  Body: PerfilBody,
 }
 
 export default PerfilPage;

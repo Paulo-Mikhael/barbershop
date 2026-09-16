@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
+import ProfileAppointments from "./ProfileAppointments";
+import ProfileBio from "./ProfileBio";
+import ProfileCard from "./ProfileCard";
+import ProfileFavoriteBarbers from "./ProfileFavoriteBarbers";
+import ProfileStats from "./ProfileStats";
 
-export default function PerfilProfile({ title = "Minha conta", children }: { title?: string, children: ReactNode }) {
+function PerfilProfile({ title = "Minha conta", children }: { title?: string, children: ReactNode }) {
   return (
     <section className="min-w-0 flex-1 p-8">
       <div className="flex items-center gap-5">
@@ -10,17 +15,14 @@ export default function PerfilProfile({ title = "Minha conta", children }: { tit
       </div>
 
       {children}
-
-      {/* 
-      <div className="mt-8 grid grid-cols-[1.35fr_.85fr] gap-6">
-        <div className="space-y-7">
-          <RecentAppointments />
-          <FavoriteBarbers />
-        </div>
-
-        <Bio />
-      </div> 
-      */}
     </section>
   );
 }
+
+PerfilProfile.Card = ProfileCard;
+PerfilProfile.Stats = ProfileStats;
+PerfilProfile.Appointments = ProfileAppointments;
+PerfilProfile.Bio = ProfileBio;
+PerfilProfile.FavoriteBarbers = ProfileFavoriteBarbers;
+
+export default PerfilProfile;
