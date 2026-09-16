@@ -1,53 +1,12 @@
 import { CalendarClock, Pencil } from "lucide-react";
 import PerfilPage from "../../src/Pages/PerfilPage";
 import { format } from "date-fns";
+import ProfileList from "./ProfileList";
 
 export default function ClientPerfil() {
   const Profile = PerfilPage.Body.Profile;
 
   const birthday = new Date("2006-06-19T00:00:00");
-
-  const appointments = [
-    {
-      icon: "K",
-      color: "bg-orange-500",
-      title: "Lorem ipsum",
-      description: "00/00/00",
-    },
-    {
-      icon: "L",
-      color: "bg-purple-500",
-      title: "Lorem ipsum",
-      description: "00/00/00",
-    },
-    {
-      icon: "R",
-      color: "bg-cyan-500",
-      title: "Lorem ipsum",
-      description: "00/00/00",
-    }
-  ];
-
-  const favoriteBabers = [
-    {
-      icon: "◉",
-      title: "Guardian Championship, Who is best?",
-      description: "Brazilian League | Sep 12, 2021 | North America",
-      color: "bg-cyan-500"
-    },
-    {
-      icon: "S",
-      title: "September, Crazyny MAJOR",
-      description: "CS2 - League | Sep 20, 2024 | North America",
-      color: "bg-red-500"
-    },
-    {
-      icon: "☠",
-      title: "Kill Me If You Can",
-      description: "Battle! | Sep 15, 2024 | North America",
-      color: "bg-orange-500"
-    }
-  ]
 
   return (
     <>
@@ -77,30 +36,7 @@ export default function ClientPerfil() {
           </Profile.Stats>
           <div className="mt-8 grid grid-cols-[1.35fr_.85fr] gap-6">
             <div className="space-y-7">
-              <Profile.List title="Atendimentos Recentes">
-                {
-                  appointments.map((appointment, index) => (
-                    <Profile.List.Card key={index}
-                      icon={appointment.icon}
-                      color={appointment.color}
-                      title={appointment.title}
-                      description={appointment.description}
-                    />
-                  ))
-                }
-              </Profile.List>
-              <Profile.List title="Cabelereiros Favoritados" layout="grid">
-                {
-                  favoriteBabers.map((barber, index) => (
-                    <Profile.List.Card key={index}
-                      icon={barber.icon}
-                      color={barber.color}
-                      title={barber.title}
-                      description={barber.description}
-                    />
-                  ))
-                }
-              </Profile.List>
+              <ProfileList />
             </div>
             <Profile.Bio />
           </div>
