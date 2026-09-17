@@ -2,11 +2,12 @@ import { CalendarClock, Pencil } from "lucide-react";
 import PerfilPage from "../../src/Pages/PerfilPage";
 import { format } from "date-fns";
 import ProfileList from "./ProfileList";
+import ProfileBio from "./ProfileBio";
 
 export default function ClientPerfil() {
   const Profile = PerfilPage.Body.Profile;
 
-  const birthday = new Date("2006-06-19T00:00:00");
+  const today = new Date();
 
   return (
     <>
@@ -17,7 +18,7 @@ export default function ClientPerfil() {
         <Profile title="Minha conta">
           <Profile.Card>
             <Profile.Card.Avatar src="https://http.cat/208" alt="208 http cat image" />
-            <Profile.Card.Username name="Paulo Miguel" joinDate={birthday} />
+            <Profile.Card.Username name="Paulo Miguel" joinDate={today} />
           </Profile.Card>
           <Profile.Stats>
             <Profile.Stats.Card>
@@ -30,7 +31,7 @@ export default function ClientPerfil() {
             <Profile.Stats.Card>
               <Profile.Stats.Card.Icon Icon={CalendarClock} iconClass="bg-brand-default" />
               <Profile.Stats.Card.Text label="Proximo Atendimento">
-                {format(birthday, "dd/MM/yyyy")}
+                {format(today, "dd/MM/yyyy")}
               </Profile.Stats.Card.Text>
             </Profile.Stats.Card>
           </Profile.Stats>
@@ -38,7 +39,7 @@ export default function ClientPerfil() {
             <div className="space-y-7">
               <ProfileList />
             </div>
-            <Profile.Bio />
+            <ProfileBio />
           </div>
         </Profile>
 
