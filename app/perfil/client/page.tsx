@@ -1,11 +1,14 @@
 import { CalendarClock, Pencil } from "lucide-react";
 import PerfilPage from "../../src/Pages/PerfilPage";
 import { format } from "date-fns";
-import ProfileList from "./ProfileList";
-import ProfileBio from "./ProfileBio";
+import ProfileList from "./Profile/ProfileList";
+import ProfileBio from "./Profile/ProfileBio";
+import AsideNav from "./Aside/AsideNav";
+import AsideSections from "./Aside/AsideSections";
 
 export default function ClientPerfil() {
   const Profile = PerfilPage.Body.Profile;
+  const Aside = PerfilPage.Body.Aside;
 
   const today = new Date();
 
@@ -13,7 +16,10 @@ export default function ClientPerfil() {
     <>
       <PerfilPage.Header />
       <PerfilPage.Body>
-        <PerfilPage.Body.Aside />
+        <Aside>
+          <AsideNav />
+          <AsideSections />
+        </Aside>
 
         <Profile title="Minha conta">
           <Profile.Card>
