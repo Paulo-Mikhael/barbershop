@@ -1,10 +1,12 @@
 "use client"
 
+import { usePerfil } from "@/app/src/contexts/PerfilContext";
 import PerfilPage from "@/app/src/Pages/PerfilPage";
 import { Cake, Pencil } from "lucide-react";
 
 export default function ProfileBio() {
   const Profile = PerfilPage.Body.Profile;
+  const { biography, data_nascimento } = usePerfil();
 
   return (
     <Profile.Bio>
@@ -16,11 +18,9 @@ export default function ProfileBio() {
       </Profile.Bio.Header>
       <Profile.Bio.Body>
         <Profile.Bio.Body.Text>
-          Barber, gamer and passionate about technology.
-          <br />
-          Always looking to improve and achieve new goals.
+          {biography}
         </Profile.Bio.Body.Text>
-        <Profile.Bio.Body.Event Icon={Cake} date={new Date()} />
+        <Profile.Bio.Body.Event Icon={Cake} date={data_nascimento} />
       </Profile.Bio.Body>
     </Profile.Bio>
   );
