@@ -7,7 +7,8 @@
     "dev": "concurrently \"next dev\" \"json-server --port 5500 server.json\"",
     "build": "next build",
     "start": "next start",
-    "contract:emit": "prisma contract emit"
+    "contract:emit": "prisma contract emit",
+    "prisma:init": "prisma db init && prisma db migrate"
   },
   "dependencies": {
     "@prisma/orm-postgres": "^8.0.0-rc.11",
