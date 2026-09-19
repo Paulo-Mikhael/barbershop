@@ -1,9 +1,11 @@
 // use prisma-8
 
-enum AppointmentStatus {
-  SCHEDULED   @map("scheduled")
-  CANCELED  @map("canceled")
-  DONE  @map("done")
+type Address {
+  cep String
+  uf String
+  city String
+  neighbourhood String
+  house_number String?
 }
 
 model Client {
@@ -12,6 +14,7 @@ model Client {
   email      String   @unique
   phone   String   @unique
   cpf        String   @unique
+  address Address
   created_at DateTime @default(now())
 
   profile              Profile?
@@ -61,7 +64,7 @@ model Barbershop {
   name       String
   phone      String
   email      String   @unique
-  endereco   String
+  address    Address
   created_at DateTime @default(now())
 
   services             Service[]
@@ -95,10 +98,9 @@ model Service {
   @@map("services")
 }
 
-enum AppointmentStatus {
-  SCHEDULED   @map("scheduled")
-  CANCELED  @map("canceled")
-  DONE  @map("DONE")
+enum EmployeePosition {
+  EMPLOYEE   @map("employee")
+  MANAGER  @map("manager")
 }
 
 model Employee {
@@ -107,13 +109,9 @@ model Employee {
   name String
   email String
   phone String
-  position String
+  position EmployeePosition @default(EMPLOYEE)
   active Boolean @default(false)
-  cep String
-  uf String
-  city String
-  neighbourhood String
-  house_number String?
+  address Address
 
   barbershop Barbershop @relation(
     fields: [barbershop_id],
@@ -126,6 +124,12 @@ model Employee {
   @@map("employees")
 }
 
+enum AppointmentStatus {
+  SCHEDULED   @map("scheduled")
+  CANCELED  @map("canceled")
+  DONE  @map("done")
+}
+
 model Appointment {
   id              Int               @id @default(autoincrement())
   client_id      Int
@@ -133,7 +137,7 @@ model Appointment {
   service_id      Int
   barbershop_id    Int
   datetime       DateTime
-  status          AppointmentStatus @default(AGENDADO)
+  status          AppointmentStatus @default(SCHEDULED)
   note      String
   created_at      DateTime          @default(now())
 

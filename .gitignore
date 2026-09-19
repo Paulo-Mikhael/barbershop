@@ -48,3 +48,6 @@ dist/
 # Node generated AI files
 AGENTS.md
 CLAUDE.md
+
+# Prisma 8 guide
+prisma-8.md
