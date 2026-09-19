@@ -31,7 +31,7 @@ model Profile {
   joined_at       DateTime @default(now())
   username        String   @unique
   biography       String
-  birthday        DateTime @db.Date
+  birthday        DateTime
 
   client Client @relation(
     fields: [client_id],
@@ -67,11 +67,11 @@ model Barbershop {
   address    Address
   created_at DateTime @default(now())
 
+  employees            Employee[]
   services             Service[]
   appointments         Appointment[]
   favorite_barbershops FavoriteBarbershop[]
   services_history     ServiceHistory[]
-  employees            Employees[]
 
   @@map("barbershops")
 }
@@ -81,7 +81,7 @@ model Service {
   barbershop_id    Int
   name            String
   description       String
-  price           Decimal  @db.Decimal(10, 2)
+  price           Decimal
   datetime       DateTime?
   minutes_duration Int
   active           Boolean  @default(true)
@@ -99,17 +99,17 @@ model Service {
 }
 
 enum EmployeePosition {
-  EMPLOYEE   @map("employee")
-  MANAGER  @map("manager")
+  Employee = "employee"
+  Manager = "manager"
 }
 
 model Employee {
   id Int @id @default(autoincrement())
-  barnershop_id Int
+  barbershop_id Int
   name String
   email String
   phone String
-  position EmployeePosition @default(EMPLOYEE)
+  position EmployeePosition @default(Employee)
   active Boolean @default(false)
   address Address
 
@@ -125,9 +125,9 @@ model Employee {
 }
 
 enum AppointmentStatus {
-  SCHEDULED   @map("scheduled")
-  CANCELED  @map("canceled")
-  DONE  @map("done")
+  Scheduled = "scheduled"
+  Canceled = "canceled"
+  Done = "done"
 }
 
 model Appointment {
@@ -137,7 +137,7 @@ model Appointment {
   service_id      Int
   barbershop_id    Int
   datetime       DateTime
-  status          AppointmentStatus @default(SCHEDULED)
+  status          AppointmentStatus @default(Scheduled)
   note      String
   created_at      DateTime          @default(now())
 
@@ -193,7 +193,7 @@ model ServiceHistory {
   barbershop_id   Int
   employee_id Int
   appointment_id Int
-  date           DateTime @db.Date
+  date           Date
 
   client Client @relation(
     fields: [client_id],
