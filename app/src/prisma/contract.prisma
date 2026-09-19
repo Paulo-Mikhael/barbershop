@@ -1,0 +1,197 @@
+// use prisma-8
+
+enum AppointmentStatus {
+  AGENDADO   @map("agendado")
+  CANCELADO  @map("cancelado")
+  CONCLUIDO  @map("concluido")
+}
+
+model Client {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  email      String   @unique
+  telefone   String   @unique
+  cpf        String   @unique
+  created_at DateTime @default(now())
+
+  profile              Profile?
+  appointments        Appointment[]
+  favorite_barbershops FavoriteBarbershop[]
+  services_history    ServiceHistory[]
+
+  @@map("clients")
+}
+
+model Profile {
+  id              Int      @id @default(autoincrement())
+  cliente_id      Int      @unique
+  joined_at       DateTime @default(now())
+  username        String   @unique
+  biography       String
+  data_nascimento DateTime @db.Date
+
+  client Client @relation(
+    fields: [cliente_id],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  avatar Avatar?
+
+  @@map("profiles")
+}
+
+model Avatar {
+  id        Int    @id @default(autoincrement())
+  profile_id Int   @unique
+  url       String
+  alt       String @default("Avatar do usuário")
+
+  profile Profile @relation(
+    fields: [profile_id],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  @@map("avatars")
+}
+
+model Barbershop {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  telefone   String
+  email      String   @unique
+  endereco   String
+  created_at DateTime @default(now())
+
+  services             Service[]
+  appointments         Appointment[]
+  favorite_barbershops FavoriteBarbershop[]
+  services_history     ServiceHistory[]
+
+  @@map("barbershops")
+}
+
+model Service {
+  id              Int      @id @default(autoincrement())
+  barbearia_id    Int
+  nome            String
+  descricao       String
+  preco           Decimal  @db.Decimal(10, 2)
+  data_hora       DateTime?
+  duracao_minutos Int
+  ativo           Boolean  @default(true)
+
+  barbearia       Barbershop       @relation(
+    fields: [barbearia_id],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  appointments    Appointment[]
+  services_history ServiceHistory[]
+
+  @@map("services")
+}
+
+model Funcionario {
+  id Int @id @default(autoincrement())
+
+  appointments     Appointment[]
+  services_history ServiceHistory[]
+
+  @@map("funcionarios")
+}
+
+model Appointment {
+  id              Int               @id @default(autoincrement())
+  cliente_id      Int
+  funcionario_id  Int
+  servico_id      Int
+  barbearia_id    Int
+  data_hora       DateTime
+  status          AppointmentStatus @default(AGENDADO)
+  observacao      String
+  created_at      DateTime          @default(now())
+
+  cliente     Client      @relation(
+    fields: [cliente_id],
+    references: [id]
+  )
+
+  funcionario Funcionario @relation(
+    fields: [funcionario_id],
+    references: [id]
+  )
+
+  servico Service @relation(
+    fields: [servico_id],
+    references: [id]
+  )
+
+  barbearia Barbershop @relation(
+    fields: [barbearia_id],
+    references: [id]
+  )
+
+  services_history ServiceHistory[]
+
+  @@map("appointments")
+}
+
+model FavoriteBarbershop {
+  id           Int @id @default(autoincrement())
+  cliente_id   Int
+  barbearia_id Int
+
+  cliente Client @relation(
+    fields: [cliente_id],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  barbearia Barbershop @relation(
+    fields: [barbearia_id],
+    references: [id],
+    onDelete: Cascade
+  )
+
+  @@map("favorite_barbershops")
+}
+
+model ServiceHistory {
+  id             Int      @id @default(autoincrement())
+  cliente_id     Int
+  servico_id     Int
+  barbearia_id   Int
+  funcionario_id Int
+  appointment_id Int
+  data           DateTime @db.Date
+
+  cliente Client @relation(
+    fields: [cliente_id],
+    references: [id]
+  )
+
+  servico Service @relation(
+    fields: [servico_id],
+    references: [id]
+  )
+
+  barbearia Barbershop @relation(
+    fields: [barbearia_id],
+    references: [id]
+  )
+
+  funcionario Funcionario @relation(
+    fields: [funcionario_id],
+    references: [id]
+  )
+
+  appointment Appointment @relation(
+    fields: [appointment_id],
+    references: [id]
+  )
+
+  @@map("services_history")
+}
