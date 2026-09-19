@@ -4,11 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"json-server --port 5500 server.json\"",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write",
     "contract:emit": "prisma contract emit"
   },
   "dependencies": {
@@ -30,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^10.0.5",
     "prisma": "^8.0.0-rc.15",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
