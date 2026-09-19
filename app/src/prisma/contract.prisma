@@ -1,16 +1,16 @@
 // use prisma-8
 
 enum AppointmentStatus {
-  AGENDADO   @map("agendado")
-  CANCELADO  @map("cancelado")
-  CONCLUIDO  @map("concluido")
+  SCHEDULED   @map("scheduled")
+  CANCELED  @map("canceled")
+  DONE  @map("done")
 }
 
 model Client {
   id         Int      @id @default(autoincrement())
-  nome       String
+  name       String
   email      String   @unique
-  telefone   String   @unique
+  phone   String   @unique
   cpf        String   @unique
   created_at DateTime @default(now())
 
@@ -24,14 +24,14 @@ model Client {
 
 model Profile {
   id              Int      @id @default(autoincrement())
-  cliente_id      Int      @unique
+  client_id       Int      @unique
   joined_at       DateTime @default(now())
   username        String   @unique
   biography       String
-  data_nascimento DateTime @db.Date
+  birthday        DateTime @db.Date
 
   client Client @relation(
-    fields: [cliente_id],
+    fields: [client_id],
     references: [id],
     onDelete: Cascade
   )
@@ -58,8 +58,8 @@ model Avatar {
 
 model Barbershop {
   id         Int      @id @default(autoincrement())
-  nome       String
-  telefone   String
+  name       String
+  phone      String
   email      String   @unique
   endereco   String
   created_at DateTime @default(now())
@@ -68,22 +68,23 @@ model Barbershop {
   appointments         Appointment[]
   favorite_barbershops FavoriteBarbershop[]
   services_history     ServiceHistory[]
+  employees            Employees[]
 
   @@map("barbershops")
 }
 
 model Service {
   id              Int      @id @default(autoincrement())
-  barbearia_id    Int
-  nome            String
-  descricao       String
-  preco           Decimal  @db.Decimal(10, 2)
-  data_hora       DateTime?
-  duracao_minutos Int
-  ativo           Boolean  @default(true)
+  barbershop_id    Int
+  name            String
+  description       String
+  price           Decimal  @db.Decimal(10, 2)
+  datetime       DateTime?
+  minutes_duration Int
+  active           Boolean  @default(true)
 
-  barbearia       Barbershop       @relation(
-    fields: [barbearia_id],
+  barbershop       Barbershop       @relation(
+    fields: [barbershop_id],
     references: [id],
     onDelete: Cascade
   )
@@ -94,43 +95,65 @@ model Service {
   @@map("services")
 }
 
-model Funcionario {
+enum AppointmentStatus {
+  SCHEDULED   @map("scheduled")
+  CANCELED  @map("canceled")
+  DONE  @map("DONE")
+}
+
+model Employee {
   id Int @id @default(autoincrement())
+  barnershop_id Int
+  name String
+  email String
+  phone String
+  position String
+  active Boolean @default(false)
+  cep String
+  uf String
+  city String
+  neighbourhood String
+  house_number String?
+
+  barbershop Barbershop @relation(
+    fields: [barbershop_id],
+    references: [id]
+  )
 
   appointments     Appointment[]
   services_history ServiceHistory[]
 
-  @@map("funcionarios")
+  @@map("employees")
 }
 
 model Appointment {
   id              Int               @id @default(autoincrement())
-  cliente_id      Int
-  funcionario_id  Int
-  servico_id      Int
-  barbearia_id    Int
-  data_hora       DateTime
+  client_id      Int
+  employee_id  Int
+  service_id      Int
+  barbershop_id    Int
+  datetime       DateTime
   status          AppointmentStatus @default(AGENDADO)
-  observacao      String
+  note      String
   created_at      DateTime          @default(now())
 
-  cliente     Client      @relation(
-    fields: [cliente_id],
+  client     Client      @relation(
+    fields: [client_id],
     references: [id]
   )
 
-  funcionario Funcionario @relation(
-    fields: [funcionario_id],
+  employee Employee @relation(
+    fields: [employee_id],
     references: [id]
   )
 
-  servico Service @relation(
-    fields: [servico_id],
+  service Service @relation(
+    fields: [service_id],
     references: [id]
   )
 
-  barbearia Barbershop @relation(
-    fields: [barbearia_id],
+  barbershop Barbershop @relation(
+    fields: [barbershop_id],
     references: [id]
   )
 
@@ -141,17 +164,17 @@ model Appointment {
 
 model FavoriteBarbershop {
   id           Int @id @default(autoincrement())
-  cliente_id   Int
-  barbearia_id Int
+  client_id   Int
+  barbershop_id Int
 
   cliente Client @relation(
-    fields: [cliente_id],
+    fields: [client_id],
     references: [id],
     onDelete: Cascade
   )
 
   barbearia Barbershop @relation(
-    fields: [barbearia_id],
+    fields: [barbershop_id],
     references: [id],
     onDelete: Cascade
   )
@@ -161,30 +184,30 @@ model FavoriteBarbershop {
 
 model ServiceHistory {
   id             Int      @id @default(autoincrement())
-  cliente_id     Int
-  servico_id     Int
-  barbearia_id   Int
-  funcionario_id Int
+  client_id     Int
+  service_id     Int
+  barbershop_id   Int
+  employee_id Int
   appointment_id Int
-  data           DateTime @db.Date
+  date           DateTime @db.Date
 
-  cliente Client @relation(
-    fields: [cliente_id],
+  client Client @relation(
+    fields: [client_id],
     references: [id]
   )
 
-  servico Service @relation(
-    fields: [servico_id],
+  service Service @relation(
+    fields: [service_id],
     references: [id]
   )
 
-  barbearia Barbershop @relation(
-    fields: [barbearia_id],
+  barbershop Barbershop @relation(
+    fields: [barbershop_id],
     references: [id]
   )
 
-  funcionario Funcionario @relation(
-    fields: [funcionario_id],
+  employee Employee @relation(
+    fields: [employee_id],
     references: [id]
   )
 

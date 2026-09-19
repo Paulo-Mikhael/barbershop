@@ -45,4 +45,6 @@ node_modules/
 dist/
 .env
 
-prisma-8.md
+# Node generated AI files
+AGENTS.md
+CLAUDE.md
