@@ -40,14 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Prisma 8 guide
+prisma-8.md
+
+# Development environment
 database-modeling.txt
 node_modules/
 dist/
 .env
-
-# Node generated AI files
-AGENTS.md
-CLAUDE.md
-
-# Prisma 8 guide
-prisma-8.md
+.prettierignore
