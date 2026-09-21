@@ -38,19 +38,6 @@ async function main() {
     },
   });
 
-  const barbershop3 = await db.orm.public.Barbershop.create({
-    name: "Teste Produção",
-    phone: "(92) 4002-8922",
-    email: "contato@centralbarberhouse.com",
-    address: {
-      cep: "69050-000",
-      uf: "AM",
-      city: "Manaus",
-      neighbourhood: "Adrianópolis",
-      house_number: "420",
-    },
-  });
-
   console.log("├── Barbearias criadas");
 
   // ============================================================

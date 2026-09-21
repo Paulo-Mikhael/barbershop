@@ -5,7 +5,7 @@ import ProfileList from "./Profile/ProfileList";
 import ProfileBio from "./Profile/ProfileBio";
 import AsideNav from "./Aside/AsideNav";
 import AsideSections from "./Aside/AsideSections";
-import { db } from "@/api/prisma/db";
+import { db } from "@/database/prisma/db";
 import { ISecurePerfil } from "@/app/src/interfaces/IPerfil";
 
 export default async function ClientPerfil({
