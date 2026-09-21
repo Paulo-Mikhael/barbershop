@@ -1,8 +1,11 @@
 import "dotenv/config";
 import { db } from "./db";
+import reset from "./reset_function";
 
 async function main() {
   db.connect();
+
+  await reset({ client: db });
 
   console.log("Etapas do processo de seed");
   // ============================================================
@@ -26,6 +29,19 @@ async function main() {
     name: "Barber House",
     phone: "(92) 3345-6789",
     email: "contato@barberhouse.com",
+    address: {
+      cep: "69050-000",
+      uf: "AM",
+      city: "Manaus",
+      neighbourhood: "Adrianópolis",
+      house_number: "420",
+    },
+  });
+
+  const barbershop3 = await db.orm.public.Barbershop.create({
+    name: "Teste Produção",
+    phone: "(92) 4002-8922",
+    email: "contato@centralbarberhouse.com",
     address: {
       cep: "69050-000",
       uf: "AM",
