@@ -4,12 +4,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"json-server --port 5500 server.json\"",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "contract:emit": "prisma contract emit",
-    "prisma:init": "prisma db init && prisma db migrate",
-    "seed": "tsx api/prisma/seed.ts"
+    "prisma:init": "prisma db init && prisma db migrate && tsx api/prisma/seed.ts",
+    "prisma:init:prod": "dotenv -e .env.production -- sh -c 'npm run prisma:init'",
+    "prisma:seed": "tsx api/prisma/seed.ts",
+    "prisma:reset": "tsx api/prisma/reset.ts"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
@@ -31,7 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "concurrently": "^10.0.5",
+    "dotenv-cli": "^11.0.0",
     "prisma": "^8.0.0-rc.15",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",

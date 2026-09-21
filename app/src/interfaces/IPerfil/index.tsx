@@ -1,14 +1,13 @@
+import { IAvatar } from "../IAvatar";
+
 export interface IPerfil {
   id: number;
-  cliente_id: number;
+  client_id: number;
   joined_at: Date;
   username: string;
-  avatar: {
-    url: string;
-    alt: string;
-  };
+  avatar: IAvatar;
   biography: string;
-  data_nascimento: Date;
+  birthday: Date;
 }
 
-export type ISecurePerfil = Omit<IPerfil, "cliente_id">;
+export type ISecurePerfil = Omit<IPerfil, "client_id">;

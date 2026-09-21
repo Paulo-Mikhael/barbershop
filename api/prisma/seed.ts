@@ -3,25 +3,11 @@ import { db } from "./db";
 
 async function main() {
   db.connect();
-  console.log("Etapas do processo de seed");
 
+  console.log("Etapas do processo de seed");
   // ============================================================
   // BARBEARIAS
   // ============================================================
-
-  await db.orm.public.ServiceHistory.where({}).deleteAll();
-  await db.orm.public.FavoriteBarbershop.where({}).deleteAll();
-  await db.orm.public.Appointment.where({}).deleteAll();
-
-  await db.orm.public.Avatar.where({}).deleteAll();
-  await db.orm.public.Profile.where({}).deleteAll();
-  await db.orm.public.Client.where({}).deleteAll();
-
-  await db.orm.public.Service.where({}).deleteAll();
-  await db.orm.public.Employee.where({}).deleteAll();
-  await db.orm.public.Barbershop.where({}).deleteAll();
-
-  console.log("├── Banco de dados resetado");
 
   const barbershop1 = await db.orm.public.Barbershop.create({
     name: "Barbearia Central",
