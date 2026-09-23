@@ -1,5 +1,5 @@
 {
-  "name": "barbershop-api",
+  "name": "barbershop",
   "main": "api/index.ts",
   "compatibility_date": "2026-09-21"
 }
