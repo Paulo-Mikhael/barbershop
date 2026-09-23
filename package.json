@@ -11,7 +11,8 @@
     "prisma:init": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts",
     "prisma:init:prod": "dotenv -e .env.production -- sh -c 'npm run prisma:init'",
     "prisma:seed": "tsx database/prisma/seed.ts",
-    "prisma:reset": "tsx database/prisma/reset.ts"
+    "prisma:reset": "tsx database/prisma/reset.ts",
+    "api": "npx wrangler dev"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",

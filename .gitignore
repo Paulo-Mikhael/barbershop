@@ -43,6 +43,11 @@ next-env.d.ts
 # Prisma 8 guide
 prisma-8.md
 
+# Cloudfare ignored files
+.wrangler/
+.dev.vars
+dist/
+
 # Development environment
 database-modeling.txt
 node_modules/
