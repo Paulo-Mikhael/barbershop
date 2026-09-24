@@ -1,0 +1,2243 @@
+{
+  "schemaVersion": "1",
+  "targetFamily": "sql",
+  "target": "postgres",
+  "profileHash": "3916f444a8a17ad749191acf9e08dad97d1a327b88c2f1d45d12f240296aa8b2",
+  "roots": {
+    "appointments": {
+      "model": "Appointment",
+      "namespace": "public"
+    },
+    "avatars": {
+      "model": "Avatar",
+      "namespace": "public"
+    },
+    "barbershops": {
+      "model": "Barbershop",
+      "namespace": "public"
+    },
+    "clients": {
+      "model": "Client",
+      "namespace": "public"
+    },
+    "employees": {
+      "model": "Employee",
+      "namespace": "public"
+    },
+    "favorite_barbershops": {
+      "model": "FavoriteBarbershop",
+      "namespace": "public"
+    },
+    "profiles": {
+      "model": "Profile",
+      "namespace": "public"
+    },
+    "services": {
+      "model": "Service",
+      "namespace": "public"
+    },
+    "services_history": {
+      "model": "ServiceHistory",
+      "namespace": "public"
+    }
+  },
+  "domain": {
+    "namespaces": {
+      "public": {
+        "enum": {
+          "AppointmentStatus": {
+            "codecId": "pg/text@1",
+            "members": [
+              {
+                "name": "Scheduled",
+                "value": "scheduled"
+              },
+              {
+                "name": "Canceled",
+                "value": "canceled"
+              },
+              {
+                "name": "Done",
+                "value": "done"
+              }
+            ]
+          },
+          "EmployeePosition": {
+            "codecId": "pg/text@1",
+            "members": [
+              {
+                "name": "Employee",
+                "value": "employee"
+              },
+              {
+                "name": "Manager",
+                "value": "manager"
+              }
+            ]
+          }
+        },
+        "models": {
+          "Appointment": {
+            "fields": {
+              "barbershop_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "client_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "created_at": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "datetime": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "employee_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "note": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "service_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "status": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                },
+                "valueSet": {
+                  "entityKind": "enum",
+                  "entityName": "AppointmentStatus",
+                  "namespaceId": "public",
+                  "plane": "domain"
+                }
+              }
+            },
+            "relations": {
+              "barbershop": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "barbershop_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Barbershop",
+                  "namespace": "public"
+                }
+              },
+              "client": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "client_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Client",
+                  "namespace": "public"
+                }
+              },
+              "employee": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "employee_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Employee",
+                  "namespace": "public"
+                }
+              },
+              "service": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "service_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Service",
+                  "namespace": "public"
+                }
+              },
+              "services_history": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "appointment_id"
+                  ]
+                },
+                "to": {
+                  "model": "ServiceHistory",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "barbershop_id": {
+                  "column": "barbershop_id"
+                },
+                "client_id": {
+                  "column": "client_id"
+                },
+                "created_at": {
+                  "column": "created_at"
+                },
+                "datetime": {
+                  "column": "datetime"
+                },
+                "employee_id": {
+                  "column": "employee_id"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "note": {
+                  "column": "note"
+                },
+                "service_id": {
+                  "column": "service_id"
+                },
+                "status": {
+                  "column": "status"
+                }
+              },
+              "namespaceId": "public",
+              "table": "appointments"
+            }
+          },
+          "Avatar": {
+            "fields": {
+              "alt": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "profile_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "url": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "profile": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "profile_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Profile",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "alt": {
+                  "column": "alt"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "profile_id": {
+                  "column": "profile_id"
+                },
+                "url": {
+                  "column": "url"
+                }
+              },
+              "namespaceId": "public",
+              "table": "avatars"
+            }
+          },
+          "Barbershop": {
+            "fields": {
+              "address": {
+                "nullable": false,
+                "type": {
+                  "kind": "valueObject",
+                  "name": "Address"
+                }
+              },
+              "created_at": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "email": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "name": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "appointments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "barbershop_id"
+                  ]
+                },
+                "to": {
+                  "model": "Appointment",
+                  "namespace": "public"
+                }
+              },
+              "employees": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "barbershop_id"
+                  ]
+                },
+                "to": {
+                  "model": "Employee",
+                  "namespace": "public"
+                }
+              },
+              "favorite_barbershops": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "barbershop_id"
+                  ]
+                },
+                "to": {
+                  "model": "FavoriteBarbershop",
+                  "namespace": "public"
+                }
+              },
+              "services": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "barbershop_id"
+                  ]
+                },
+                "to": {
+                  "model": "Service",
+                  "namespace": "public"
+                }
+              },
+              "services_history": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "barbershop_id"
+                  ]
+                },
+                "to": {
+                  "model": "ServiceHistory",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "address": {
+                  "column": "address"
+                },
+                "created_at": {
+                  "column": "created_at"
+                },
+                "email": {
+                  "column": "email"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "name": {
+                  "column": "name"
+                },
+                "phone": {
+                  "column": "phone"
+                }
+              },
+              "namespaceId": "public",
+              "table": "barbershops"
+            }
+          },
+          "Client": {
+            "fields": {
+              "address": {
+                "nullable": false,
+                "type": {
+                  "kind": "valueObject",
+                  "name": "Address"
+                }
+              },
+              "cpf": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "created_at": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "email": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "name": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "appointments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "client_id"
+                  ]
+                },
+                "to": {
+                  "model": "Appointment",
+                  "namespace": "public"
+                }
+              },
+              "favorite_barbershops": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "client_id"
+                  ]
+                },
+                "to": {
+                  "model": "FavoriteBarbershop",
+                  "namespace": "public"
+                }
+              },
+              "profile": {
+                "cardinality": "1:1",
+                "nullable": true,
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "client_id"
+                  ]
+                },
+                "to": {
+                  "model": "Profile",
+                  "namespace": "public"
+                }
+              },
+              "services_history": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "client_id"
+                  ]
+                },
+                "to": {
+                  "model": "ServiceHistory",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "address": {
+                  "column": "address"
+                },
+                "cpf": {
+                  "column": "cpf"
+                },
+                "created_at": {
+                  "column": "created_at"
+                },
+                "email": {
+                  "column": "email"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "name": {
+                  "column": "name"
+                },
+                "phone": {
+                  "column": "phone"
+                }
+              },
+              "namespaceId": "public",
+              "table": "clients"
+            }
+          },
+          "Employee": {
+            "fields": {
+              "active": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
+              },
+              "address": {
+                "nullable": false,
+                "type": {
+                  "kind": "valueObject",
+                  "name": "Address"
+                }
+              },
+              "barbershop_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "email": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "name": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "position": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                },
+                "valueSet": {
+                  "entityKind": "enum",
+                  "entityName": "EmployeePosition",
+                  "namespaceId": "public",
+                  "plane": "domain"
+                }
+              }
+            },
+            "relations": {
+              "appointments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "employee_id"
+                  ]
+                },
+                "to": {
+                  "model": "Appointment",
+                  "namespace": "public"
+                }
+              },
+              "barbershop": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "barbershop_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Barbershop",
+                  "namespace": "public"
+                }
+              },
+              "services_history": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "employee_id"
+                  ]
+                },
+                "to": {
+                  "model": "ServiceHistory",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "active": {
+                  "column": "active"
+                },
+                "address": {
+                  "column": "address"
+                },
+                "barbershop_id": {
+                  "column": "barbershop_id"
+                },
+                "email": {
+                  "column": "email"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "name": {
+                  "column": "name"
+                },
+                "phone": {
+                  "column": "phone"
+                },
+                "position": {
+                  "column": "position"
+                }
+              },
+              "namespaceId": "public",
+              "table": "employees"
+            }
+          },
+          "FavoriteBarbershop": {
+            "fields": {
+              "barbershop_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "client_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "barbearia": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "barbershop_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Barbershop",
+                  "namespace": "public"
+                }
+              },
+              "cliente": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "client_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Client",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "barbershop_id": {
+                  "column": "barbershop_id"
+                },
+                "client_id": {
+                  "column": "client_id"
+                },
+                "id": {
+                  "column": "id"
+                }
+              },
+              "namespaceId": "public",
+              "table": "favorite_barbershops"
+            }
+          },
+          "Profile": {
+            "fields": {
+              "biography": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "birthday": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "client_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "joined_at": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "username": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "avatar": {
+                "cardinality": "1:1",
+                "nullable": true,
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "profile_id"
+                  ]
+                },
+                "to": {
+                  "model": "Avatar",
+                  "namespace": "public"
+                }
+              },
+              "client": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "client_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Client",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "biography": {
+                  "column": "biography"
+                },
+                "birthday": {
+                  "column": "birthday"
+                },
+                "client_id": {
+                  "column": "client_id"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "joined_at": {
+                  "column": "joined_at"
+                },
+                "username": {
+                  "column": "username"
+                }
+              },
+              "namespaceId": "public",
+              "table": "profiles"
+            }
+          },
+          "Service": {
+            "fields": {
+              "active": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
+              },
+              "barbershop_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "datetime": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "description": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "minutes_duration": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "name": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "price": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/numeric@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "appointments": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "service_id"
+                  ]
+                },
+                "to": {
+                  "model": "Appointment",
+                  "namespace": "public"
+                }
+              },
+              "barbershop": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "barbershop_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Barbershop",
+                  "namespace": "public"
+                }
+              },
+              "services_history": {
+                "cardinality": "1:N",
+                "on": {
+                  "localFields": [
+                    "id"
+                  ],
+                  "targetFields": [
+                    "service_id"
+                  ]
+                },
+                "to": {
+                  "model": "ServiceHistory",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "active": {
+                  "column": "active"
+                },
+                "barbershop_id": {
+                  "column": "barbershop_id"
+                },
+                "datetime": {
+                  "column": "datetime"
+                },
+                "description": {
+                  "column": "description"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "minutes_duration": {
+                  "column": "minutes_duration"
+                },
+                "name": {
+                  "column": "name"
+                },
+                "price": {
+                  "column": "price"
+                }
+              },
+              "namespaceId": "public",
+              "table": "services"
+            }
+          },
+          "ServiceHistory": {
+            "fields": {
+              "appointment_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "barbershop_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "client_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "date": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/date-temporal@1",
+                  "kind": "scalar"
+                }
+              },
+              "employee_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              },
+              "service_id": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/int4@1",
+                  "kind": "scalar"
+                }
+              }
+            },
+            "relations": {
+              "appointment": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "appointment_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Appointment",
+                  "namespace": "public"
+                }
+              },
+              "barbershop": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "barbershop_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Barbershop",
+                  "namespace": "public"
+                }
+              },
+              "client": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "client_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Client",
+                  "namespace": "public"
+                }
+              },
+              "employee": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "employee_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Employee",
+                  "namespace": "public"
+                }
+              },
+              "service": {
+                "cardinality": "N:1",
+                "nullable": false,
+                "on": {
+                  "localFields": [
+                    "service_id"
+                  ],
+                  "targetFields": [
+                    "id"
+                  ]
+                },
+                "to": {
+                  "model": "Service",
+                  "namespace": "public"
+                }
+              }
+            },
+            "storage": {
+              "fields": {
+                "appointment_id": {
+                  "column": "appointment_id"
+                },
+                "barbershop_id": {
+                  "column": "barbershop_id"
+                },
+                "client_id": {
+                  "column": "client_id"
+                },
+                "date": {
+                  "column": "date"
+                },
+                "employee_id": {
+                  "column": "employee_id"
+                },
+                "id": {
+                  "column": "id"
+                },
+                "service_id": {
+                  "column": "service_id"
+                }
+              },
+              "namespaceId": "public",
+              "table": "services_history"
+            }
+          }
+        },
+        "valueObjects": {
+          "Address": {
+            "fields": {
+              "cep": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "city": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "house_number": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "neighbourhood": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "uf": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "storage": {
+    "namespaces": {
+      "public": {
+        "entries": {
+          "table": {
+            "appointments": {
+              "checks": [
+                {
+                  "expression": "\"status\" IN ('scheduled', 'canceled', 'done')",
+                  "name": "appointments_status_check_44704799",
+                  "prefix": "appointments_status_check"
+                }
+              ],
+              "columns": {
+                "barbershop_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "client_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "created_at": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "datetime": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "employee_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "note": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "service_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "status": {
+                  "codecId": "pg/text@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": "scheduled"
+                  },
+                  "nativeType": "text",
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "AppointmentStatus",
+                    "namespaceId": "public",
+                    "plane": "storage"
+                  }
+                }
+              },
+              "foreignKeys": [
+                {
+                  "source": {
+                    "columns": [
+                      "client_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "appointments"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "clients"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "employee_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "appointments"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "employees"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "service_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "appointments"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "barbershop_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "appointments"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "barbershops"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "barbershop_id"
+                  ],
+                  "name": "appointments_barbershop_id_idx_6995b304",
+                  "prefix": "appointments_barbershop_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "client_id"
+                  ],
+                  "name": "appointments_client_id_idx_1bb5a570",
+                  "prefix": "appointments_client_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "employee_id"
+                  ],
+                  "name": "appointments_employee_id_idx_a830a6c3",
+                  "prefix": "appointments_employee_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "service_id"
+                  ],
+                  "name": "appointments_service_id_idx_cd05e196",
+                  "prefix": "appointments_service_id_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "avatars": {
+              "columns": {
+                "alt": {
+                  "codecId": "pg/text@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": "Avatar do usuário"
+                  },
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "profile_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "url": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "profile_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "avatars"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profiles"
+                  }
+                }
+              ],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "profile_id"
+                  ]
+                }
+              ]
+            },
+            "barbershops": {
+              "columns": {
+                "address": {
+                  "codecId": "pg/jsonb@1",
+                  "nativeType": "jsonb",
+                  "nullable": false
+                },
+                "created_at": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "email": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "phone": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "email"
+                  ]
+                }
+              ]
+            },
+            "clients": {
+              "columns": {
+                "address": {
+                  "codecId": "pg/jsonb@1",
+                  "nativeType": "jsonb",
+                  "nullable": false
+                },
+                "cpf": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "created_at": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "email": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "phone": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "email"
+                  ]
+                },
+                {
+                  "columns": [
+                    "phone"
+                  ]
+                },
+                {
+                  "columns": [
+                    "cpf"
+                  ]
+                }
+              ]
+            },
+            "employees": {
+              "checks": [
+                {
+                  "expression": "\"position\" IN ('employee', 'manager')",
+                  "name": "employees_position_check_e24e2571",
+                  "prefix": "employees_position_check"
+                }
+              ],
+              "columns": {
+                "active": {
+                  "codecId": "pg/bool@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": false
+                  },
+                  "nativeType": "bool",
+                  "nullable": false
+                },
+                "address": {
+                  "codecId": "pg/jsonb@1",
+                  "nativeType": "jsonb",
+                  "nullable": false
+                },
+                "barbershop_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "email": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "phone": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "position": {
+                  "codecId": "pg/text@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": "employee"
+                  },
+                  "nativeType": "text",
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "EmployeePosition",
+                    "namespaceId": "public",
+                    "plane": "storage"
+                  }
+                }
+              },
+              "foreignKeys": [
+                {
+                  "source": {
+                    "columns": [
+                      "barbershop_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "employees"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "barbershops"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "barbershop_id"
+                  ],
+                  "name": "employees_barbershop_id_idx_6995b304",
+                  "prefix": "employees_barbershop_id_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "favorite_barbershops": {
+              "columns": {
+                "barbershop_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "client_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "client_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "favorite_barbershops"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "clients"
+                  }
+                },
+                {
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "barbershop_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "favorite_barbershops"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "barbershops"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "barbershop_id"
+                  ],
+                  "name": "favorite_barbershops_barbershop_id_idx_6995b304",
+                  "prefix": "favorite_barbershops_barbershop_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "client_id"
+                  ],
+                  "name": "favorite_barbershops_client_id_idx_1bb5a570",
+                  "prefix": "favorite_barbershops_client_id_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "profiles": {
+              "columns": {
+                "biography": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "birthday": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "client_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "joined_at": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "default": {
+                    "expression": "now()",
+                    "kind": "function"
+                  },
+                  "nativeType": "timestamptz",
+                  "nullable": false
+                },
+                "username": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "client_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "profiles"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "clients"
+                  }
+                }
+              ],
+              "indexes": [],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": [
+                {
+                  "columns": [
+                    "client_id"
+                  ]
+                },
+                {
+                  "columns": [
+                    "username"
+                  ]
+                }
+              ]
+            },
+            "services": {
+              "columns": {
+                "active": {
+                  "codecId": "pg/bool@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": true
+                  },
+                  "nativeType": "bool",
+                  "nullable": false
+                },
+                "barbershop_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "datetime": {
+                  "codecId": "pg/timestamptz-temporal@1",
+                  "nativeType": "timestamptz",
+                  "nullable": true
+                },
+                "description": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "minutes_duration": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "name": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "price": {
+                  "codecId": "pg/numeric@1",
+                  "nativeType": "numeric",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "onDelete": "cascade",
+                  "source": {
+                    "columns": [
+                      "barbershop_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "barbershops"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "barbershop_id"
+                  ],
+                  "name": "services_barbershop_id_idx_6995b304",
+                  "prefix": "services_barbershop_id_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            },
+            "services_history": {
+              "columns": {
+                "appointment_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "barbershop_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "client_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "date": {
+                  "codecId": "pg/date-temporal@1",
+                  "nativeType": "date",
+                  "nullable": false
+                },
+                "employee_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "id": {
+                  "codecId": "pg/int4@1",
+                  "default": {
+                    "expression": "autoincrement()",
+                    "kind": "function"
+                  },
+                  "nativeType": "int4",
+                  "nullable": false
+                },
+                "service_id": {
+                  "codecId": "pg/int4@1",
+                  "nativeType": "int4",
+                  "nullable": false
+                }
+              },
+              "foreignKeys": [
+                {
+                  "source": {
+                    "columns": [
+                      "client_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services_history"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "clients"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "service_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services_history"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "barbershop_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services_history"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "barbershops"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "employee_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services_history"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "employees"
+                  }
+                },
+                {
+                  "source": {
+                    "columns": [
+                      "appointment_id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "services_history"
+                  },
+                  "target": {
+                    "columns": [
+                      "id"
+                    ],
+                    "namespaceId": "public",
+                    "tableName": "appointments"
+                  }
+                }
+              ],
+              "indexes": [
+                {
+                  "columns": [
+                    "appointment_id"
+                  ],
+                  "name": "services_history_appointment_id_idx_5a77e0f0",
+                  "prefix": "services_history_appointment_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "barbershop_id"
+                  ],
+                  "name": "services_history_barbershop_id_idx_6995b304",
+                  "prefix": "services_history_barbershop_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "client_id"
+                  ],
+                  "name": "services_history_client_id_idx_1bb5a570",
+                  "prefix": "services_history_client_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "employee_id"
+                  ],
+                  "name": "services_history_employee_id_idx_a830a6c3",
+                  "prefix": "services_history_employee_id_idx",
+                  "unique": false
+                },
+                {
+                  "columns": [
+                    "service_id"
+                  ],
+                  "name": "services_history_service_id_idx_cd05e196",
+                  "prefix": "services_history_service_id_idx",
+                  "unique": false
+                }
+              ],
+              "primaryKey": {
+                "columns": [
+                  "id"
+                ]
+              },
+              "uniques": []
+            }
+          },
+          "valueSet": {
+            "AppointmentStatus": {
+              "kind": "valueSet",
+              "values": [
+                "scheduled",
+                "canceled",
+                "done"
+              ]
+            },
+            "EmployeePosition": {
+              "kind": "valueSet",
+              "values": [
+                "employee",
+                "manager"
+              ]
+            }
+          }
+        },
+        "id": "public",
+        "kind": "postgres-schema"
+      }
+    },
+    "storageHash": "1ceb5aaac9bbfe88f68e2c9ee82fdedec4fe88c6a04c553941e1c63874328333"
+  },
+  "capabilities": {
+    "postgres": {
+      "distinctOn": true,
+      "jsonAgg": true,
+      "lateral": true,
+      "limit": true,
+      "orderBy": true,
+      "returning": true
+    },
+    "sql": {
+      "checkConstraint": true,
+      "defaultInInsert": true,
+      "enums": true,
+      "lateral": true,
+      "returning": true,
+      "scalarList": true
+    }
+  },
+  "extensions": {},
+  "meta": {},
+  "_generated": {
+    "warning": "⚠️  GENERATED FILE - DO NOT EDIT",
+    "message": "This file is automatically generated by \"prisma contract emit\".",
+    "regenerate": "To regenerate, run: prisma contract emit"
+  }
+}

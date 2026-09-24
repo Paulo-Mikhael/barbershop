@@ -1,29 +1,42 @@
 {
   "name": "barbershop",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently 'npx json-server --port=5000 server.json' 'next dev'",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next dev",
+    "build": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts && next build",
+    "start": "next start",
+    "contract:emit": "prisma contract emit",
+    "prisma:init": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts",
+    "prisma:init:prod": "dotenv -e .env.production -- sh -c 'npm run prisma:init'",
+    "prisma:seed": "tsx database/prisma/seed.ts",
+    "prisma:reset": "tsx database/prisma/reset.ts"
   },
   "dependencies": {
+    "@js-temporal/polyfill": "^0.5.1",
     "axios": "^1.20.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
-    "json-server": "^1.0.0-beta.15",
+    "dotenv": "^18.0.0",
     "lucide-react": "^1.41.0",
     "next": "16.2.10",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "vercel": "^60.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@prisma/cli-engine": "^0.4.0",
+    "@prisma/orm-postgres": "^8.0.0-rc.11",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
+    "prisma": "^8.0.0-rc.15",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
   }
 }

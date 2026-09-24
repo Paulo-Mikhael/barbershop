@@ -11,6 +11,9 @@
   <abbr title="Typescript - Linguagem de programação multiparadigma">
     <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white" alt="Badge do Typescript" />
   </abbr>
+  <abbr title="Prisma - ORM para lidar com dados relacionais">
+    <img src="https://img.shields.io/badge/Prisma-2D3748.svg?style=for-the-badge&logo=Prisma&logoColor=white" alt="Badge do Prisma" />
+  </abbr>
 </div>
 
 ## Bibliotecas 📚
@@ -18,13 +21,29 @@
   <abbr title="Tailwind css - Biblioteca de estilização">
     <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white" alt="Badge da biblioteca Tailwind css" />
   </abbr>
+  <abbr title="Lucide React - Biblioteca de ícones">
+    <img src="https://img.shields.io/badge/Lucide-F56565.svg?style=for-the-badge&logo=Lucide&logoColor=white" alt="Badge da biblioteca Lucide React" />
+  </abbr>
+  <abbr title="Axios - Biblioteca para requisições http">
+    <img src="https://img.shields.io/badge/Axios-5A29E4.svg?style=for-the-badge&logo=Axios&logoColor=white" alt="Badge da biblioteca Axios" />
+  </abbr>
+  <abbr title="Date FNS - Biblioteca para gerenciar datas">
+    <img src="https://img.shields.io/badge/datefns-770C56.svg?style=for-the-badge&logo=date-fns&logoColor=white" alt="Badge da biblioteca Date FNS" />
+  </abbr>
+</div>
+
+## Conteinerização
+<div>
+  <abbr title="Docker - Ambiente de criação de contêineres">
+    <img src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white" alt="Badge do Docker" />
+  </abbr>
 </div>
 
 ## Etapas do Projeto 📒
 | Nome | Concluído |
 |----------|----------|
 | [Landing Page](https://barbershop-xi-rust.vercel.app)           | ✅ |
-| Perfil do Cliente      | 🟥 |
+| [Perfil do Cliente (Estática)](https://barbershop-xi-rust.vercel.app/perfil/client/1)      | ✅ |
 | Perfil do Funcionário  | 🟥 |
 | Página Administrativa  | 🟥 |
 | Página de Checkout     | 🟥 |
