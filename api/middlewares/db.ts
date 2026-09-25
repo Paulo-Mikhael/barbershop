@@ -5,7 +5,7 @@ import contractJson from "../../database/prisma/contract.json" with { type: "jso
 import { MiddlewareReturn } from "../types/Middlewares";
 
 export const db: MiddlewareReturn = (app: App, route: string) => {
-  return app.use(`${route}/*`, async (c, next) => {
+  const a = app.use(`${route}/*`, async (c, next) => {
     try {
       const db = postgres<Contract>({
         contractJson,
@@ -19,4 +19,6 @@ export const db: MiddlewareReturn = (app: App, route: string) => {
       throw new Error("Erro no middleware db.ts: " + error);
     }
   });
+
+  return a;
 };

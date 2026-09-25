@@ -1,4 +1,4 @@
-// Vercel detects this file by "https://barbershop.vercel.app/api/*"
+// Vercel detects this file by "https://barbershop-xi-rust.vercel.app/api/**"
 
 import { handle } from "hono/vercel";
 import app from "@/api";
