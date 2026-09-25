@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts && next build",
-    "start": "next start",
+    "start": "next build && next start",
     "contract:emit": "prisma contract emit",
-    "prisma:init": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts",
-    "prisma:init:prod": "dotenv -e .env.production -- sh -c 'npm run prisma:init'",
     "prisma:seed": "tsx database/prisma/seed.ts",
-    "prisma:reset": "tsx database/prisma/reset.ts"
+    "prisma:reset": "tsx database/prisma/reset.ts",
+    "prisma:init": "prisma db init && prisma db migrate && tsx database/prisma/seed.ts",
+    "prisma:init:prod": "dotenv -e .env.production -- sh -c 'npm run prisma:init'"
   },
   "dependencies": {
     "@hono/swagger-ui": "^0.6.1",
