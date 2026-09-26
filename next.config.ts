@@ -1,15 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      new URL("https://http.cat/**"),
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-    ],
-  },
+  /* config options here */
 };
+
+module.exports = {
+  images: {
+    remotePatterns: [new URL('https://http.cat/**')],
+  },
+}
 
 export default nextConfig;

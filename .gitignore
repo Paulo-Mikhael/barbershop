@@ -31,8 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env
-.env.*
+.env*
 
 # vercel
 .vercel
@@ -41,11 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Prisma 8 guide
-prisma-8.md
-
-# Development environment
-database-modeling.txt
-node_modules/
-dist/
+# Development Environment
 .prettierignore
