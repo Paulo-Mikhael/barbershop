@@ -1,9 +1,8 @@
+import middlewares from "./middlewares";
+import errors from "./errors";
 import { Temporal } from "@js-temporal/polyfill";
 
 (globalThis as any).Temporal = Temporal;
-
-import middlewares from "./middlewares";
-import errors from "./errors";
 
 import clients from "./routes/clients";
 
